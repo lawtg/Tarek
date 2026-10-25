@@ -1,0 +1,10 @@
+{
+  "description": "Tarek Logistics Limited offers comprehensive travel planning, logistics, and event services for individuals and organizations, ensuring memorable experiences with exceptional service.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

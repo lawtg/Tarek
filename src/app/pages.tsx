@@ -1,0 +1,987 @@
+import { Link, useParams } from "react-router"
+import { useEffect, useRef, useState } from "react"
+import {
+  ArrowRight,
+  Building2,
+  CheckCircle2,
+  Church,
+  GraduationCap,
+  HeartHandshake,
+  MessageCircle,
+  Phone,
+  Sparkles,
+  Users,
+} from "lucide-react"
+import {
+  ContactForm,
+  Eyebrow,
+  FaqList,
+  FinalCta,
+  PageHero,
+  SectionHeading,
+  WhatsAppLink,
+} from "./components"
+import {
+  EMAIL,
+  experienceCategories,
+  faqs,
+  images,
+  PHONE_DISPLAY,
+  PHONE_LINK,
+  services,
+  whatsappUrl,
+} from "./data"
+
+// ── Scroll-reveal hook ─────────────────────────────────────────────────────
+// Uses IntersectionObserver — fires once per element, never on scroll events.
+function useReveal(threshold = 0.12) {
+  const ref = useRef<HTMLElement>(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          obs.disconnect()
+        }
+      },
+      { threshold }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [threshold])
+  return { ref, visible }
+}
+
+export function Home() {
+  const visibleServices = services.slice(0, 4)
+  const moreServices = services.slice(4)
+  const [activeValue, setActiveValue] = useState(0)
+
+  const audienceData = [
+    {
+      title: "Individuals & Families",
+      desc: "Personal travel planning, group getaways, and memorable family experiences.",
+      Icon: HeartHandshake,
+    },
+    {
+      title: "Schools & Educational Institutions",
+      desc: "Thoughtfully coordinated educational tours and learning excursions.",
+      Icon: GraduationCap,
+    },
+    {
+      title: "Churches & Religious Organisations",
+      desc: "Pilgrimage planning and faith-based group journey coordination.",
+      Icon: Church,
+    },
+    {
+      title: "Corporate Organisations",
+      desc: "Protocol, events, logistics, and corporate group travel support.",
+      Icon: Building2,
+    },
+    {
+      title: "Groups & Associations",
+      desc: "End-to-end coordination for group travel, outings, and community programmes.",
+      Icon: Users,
+    },
+    {
+      title: "Event Organisers & Delegations",
+      desc: "Professional meet-and-greet, guest coordination, and event logistics.",
+      Icon: Sparkles,
+    },
+  ]
+
+  const differenceItems = [
+    {
+      num: "01",
+      title: "Thoughtful Planning",
+      desc: "We go beyond logistics. Every detail is considered, every arrangement discussed, and every commitment kept.",
+    },
+    {
+      num: "02",
+      title: "Personalised Attention",
+      desc: "We take time to understand your requirements, discuss what matters to you, and tailor arrangements accordingly.",
+    },
+    {
+      num: "03",
+      title: "Seamless Coordination",
+      desc: "From first inquiry to delivery, our coordination is precise, proactive, and professionally communicated.",
+    },
+    {
+      num: "04",
+      title: "Experiences Worth Remembering",
+      desc: "We are committed to positive experiences that stay with people long after the journey ends.",
+    },
+  ]
+
+  const steps = [
+    ["01", "Tell Us Your Plans", "Share your service, dates, destination, group size, and budget."],
+    ["02", "Discuss Your Needs", "We explore your expectations and identify suitable options together."],
+    ["03", "Confirm the Details", "Review your proposal, pricing, and arrangements before booking."],
+    ["04", "Get Ready for the Experience", "We coordinate and communicate every preparation requirement."],
+  ]
+
+  const planning = [
+    ["Tours & Vacations", "Explore new destinations.", Users, "/tours"],
+    ["Group Excursions", "Travel together, create memories.", GraduationCap, "/services/educational-tourism"],
+    ["Events & Logistics", "Professional support, every step.", Building2, "/services/protocol-events"],
+  ] as const
+
+  const servicesReveal = useReveal()
+  const aboutReveal = useReveal()
+  const audienceReveal = useReveal()
+  const processReveal = useReveal()
+  const packagesReveal = useReveal()
+  const philosophyReveal = useReveal(0.2)
+
+  return (
+    <>
+      {/* ════════════════════════════════════════════════════════════════
+          SECTION 01 — CINEMATIC HERO
+      ════════════════════════════════════════════════════════════════ */}
+      <section className="hero">
+        <div className="hero__bg" aria-hidden="true">
+          <img
+            src={images.hero}
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+          />
+        </div>
+        <div className="hero__overlay" aria-hidden="true" />
+
+        {/* Scroll indicator — fixed bottom-right, independent of content */}
+        <div className="hero__scroll-indicator" aria-hidden="true">
+          <span className="hero__scroll-label">Scroll</span>
+          <span className="hero__scroll-line" />
+        </div>
+
+        <div className="hero__content">
+          <div className="hero__inner">
+            <div className="hero__copy">
+              <p className="hero__eyebrow">
+                <span className="hero__eyebrow-rule" aria-hidden="true" />
+                THE ART OF THE JOURNEY
+              </p>
+              <h1 aria-label="Every Journey Deserves to Be Extraordinary.">
+                <span className="hero__h1-line hero__h1-line--1">Every Journey</span>
+                <span className="hero__h1-line hero__h1-line--2">Deserves to Be</span>
+                <span className="hero__h1-line hero__h1-line--3"><em>Extraordinary.</em></span>
+              </h1>
+              <p className="hero__sub">
+                Affordable travel, seamless logistics, and memorable experiences —
+                thoughtfully planned around you.
+              </p>
+              <div className="hero__actions">
+                <WhatsAppLink
+                  message="Hello Tarek Logistics Limited, I would like to plan an experience."
+                  className="button hero__btn hero__btn--primary"
+                >
+                  Plan Your Experience
+                  <span className="hero__btn-arrow" aria-hidden="true">
+                    <ArrowRight size={16} />
+                  </span>
+                </WhatsAppLink>
+                <a className="button hero__btn hero__btn--secondary" href="#services">
+                  Explore Our Experiences
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom metadata strip */}
+        <div className="hero__meta" aria-hidden="true">
+          <div className="hero__inner">
+            <span className="hero__meta-item">Since 2020</span>
+            <span className="hero__meta-divider" />
+            <span className="hero__meta-item">Tarek Logistics Limited</span>
+            <span className="hero__meta-divider" />
+            <span className="hero__meta-item">Nigeria</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          PLANNING STRIP — floats up into hero bottom edge
+      ════════════════════════════════════════════════════════════════ */}
+      <div className="planning-wrap">
+        <div className="container">
+          <div className="planning-strip">
+            <div className="planning-intro">
+              <p className="planning-intro__label">Start here</p>
+              <h2>What are you planning?</h2>
+            </div>
+            <nav className="planning-links" aria-label="Quick planning links">
+              {planning.map(([title, copy, Icon, link]) => (
+                <Link to={link} key={title} className="planning-link">
+                  <span className="planning-link__icon"><Icon size={18} /></span>
+                  <span className="planning-link__text">
+                    <strong>{title}</strong>
+                    <small>{copy}</small>
+                  </span>
+                  <ArrowRight size={14} className="planning-link__arrow" aria-hidden="true" />
+                </Link>
+              ))}
+            </nav>
+            <Link className="button button--primary planning-cta" to="/contact">
+              Let&apos;s Talk <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SECTION 02 — BRAND PHILOSOPHY (quiet editorial pause)
+      ════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`philosophy reveal-section${philosophyReveal.visible ? " is-visible" : ""}`}
+        ref={philosophyReveal.ref as React.RefObject<HTMLElement>}
+      >
+        <div className="philosophy__inner">
+          <p className="philosophy__eyebrow reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
+            <span aria-hidden="true" />The Tarek Philosophy
+          </p>
+          <h2 className="reveal-item" style={{ "--delay": "80ms" } as React.CSSProperties}>
+            The Difference Is<br /><em>in the Details.</em>
+          </h2>
+          <p className="philosophy__body reveal-item" style={{ "--delay": "160ms" } as React.CSSProperties}>
+            From thoughtfully planned educational journeys to unforgettable group
+            experiences — great experiences are made of a thousand small decisions,
+            each one made with care.
+          </p>
+          <div className="philosophy__rule reveal-item" style={{ "--delay": "240ms" } as React.CSSProperties} />
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SECTION 03 — WHAT WE CREATE (services editorial gallery)
+      ════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`services-section reveal-section${servicesReveal.visible ? " is-visible" : ""}`}
+        id="services"
+        ref={servicesReveal.ref as React.RefObject<HTMLElement>}
+      >
+        <div className="services-section__head container">
+          <div className="reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
+            <Eyebrow light>WHAT WE CREATE</Eyebrow>
+            <h2 className="services-section__title">Our Experiences</h2>
+          </div>
+          <p className="services-section__sub reveal-item" style={{ "--delay": "100ms" } as React.CSSProperties}>
+            Four areas of expertise. One commitment — to plan every detail so
+            you can focus entirely on the experience.
+          </p>
+        </div>
+        <div className="container">
+          <div className="service-grid">
+            {visibleServices.map((service, i) => (
+              <ServiceCard key={service.slug} service={service} index={i} visible={servicesReveal.visible} />
+            ))}
+          </div>
+          <div className="service-links reveal-item" style={{ "--delay": "400ms" } as React.CSSProperties}>
+            <span>More services</span>
+            {moreServices.map((service) => (
+              <Link key={service.slug} to={`/services/${service.slug}`}>
+                {service.title} <ArrowRight size={13} />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SECTION 04 — THE TAREK STORY (editorial split)
+      ════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`section about-split reveal-section${aboutReveal.visible ? " is-visible" : ""}`}
+        ref={aboutReveal.ref as React.RefObject<HTMLElement>}
+      >
+        <div className="container about-grid">
+          <div className="about-image reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
+            <div className="about-image__frame">
+              <img src={images.about} alt="Thoughtful planning in action" loading="lazy" />
+            </div>
+            <div className="about-image__tag">
+              <span>Excellent &amp; Exceptional</span>
+              <strong>Service.</strong>
+            </div>
+          </div>
+          <div className="about-copy reveal-item" style={{ "--delay": "200ms" } as React.CSSProperties}>
+            <Eyebrow>THE TAREK STORY</Eyebrow>
+            <h2>More Than Logistics.</h2>
+            <p className="about-copy__lead">
+              We create experiences worth remembering — for individuals, groups,
+              schools, churches, and organisations.
+            </p>
+            <p>
+              From educational excursions and group vacations to pilgrimage, protocol,
+              logistics, training, and events — we help you turn plans into
+              well-coordinated experiences.
+            </p>
+            <p>
+              Our approach: listen carefully, plan with precision, communicate
+              clearly, deliver with professionalism.
+            </p>
+            <Link className="text-link" to="/about">
+              Discover Our Story <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SECTION 05 — THE TAREK DIFFERENCE (sticky interactive)
+      ════════════════════════════════════════════════════════════════ */}
+      <section className="section difference">
+        <div className="container">
+          <div className="difference__header">
+            <Eyebrow>THE TAREK DIFFERENCE</Eyebrow>
+            <h2>What Sets Us Apart.</h2>
+          </div>
+        </div>
+        <div className="container difference__inner">
+          <div className="difference__nav">
+            {differenceItems.map((item, i) => (
+              <div
+                key={item.title}
+                className={`difference__nav-item${activeValue === i ? " is-active" : ""}`}
+                onClick={() => setActiveValue(i)}
+                onMouseEnter={() => setActiveValue(i)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && setActiveValue(i)}
+                aria-pressed={activeValue === i}
+              >
+                <span className="difference__num">{item.num}</span>
+                <div className="difference__nav-text">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="difference__visual" aria-hidden="true">
+            <div className="difference__visual-inner">
+              {differenceItems.map((item, i) => (
+                <div key={item.title} className={`difference__slide${activeValue === i ? " is-active" : ""}`}>
+                  <div className="difference__slide-bg">
+                    <span>{item.num}</span>
+                  </div>
+                  <div className="difference__slide-label">
+                    <span>{item.num} — THE TAREK DIFFERENCE</span>
+                    <strong>{item.title}</strong>
+                  </div>
+                </div>
+              ))}
+              <div className="difference__progress">
+                {differenceItems.map((item, i) => (
+                  <button
+                    key={item.title}
+                    className={`difference__progress-dot${activeValue === i ? " is-active" : ""}`}
+                    onClick={() => setActiveValue(i)}
+                    aria-label={`Show: ${item.title}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SECTION 06 — WHO WE SERVE (dark directory — breaks light run)
+      ════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`audience reveal-section${audienceReveal.visible ? " is-visible" : ""}`}
+        ref={audienceReveal.ref as React.RefObject<HTMLElement>}
+      >
+        <div className="container audience__inner">
+          <div className="audience__head">
+            <p className="audience__eyebrow">WHO WE SERVE</p>
+            <h2>One Partner.<br />Every Need.</h2>
+            <p className="audience__sub">
+              Whether you are planning for yourself or coordinating an
+              experience for hundreds — we are ready to discuss.
+            </p>
+            <Link className="button button--outline-light" to="/contact">
+              Tell Us What You Need <ArrowRight size={16} />
+            </Link>
+          </div>
+          <div className="audience-directory">
+            {audienceData.map(({ title, desc, Icon }, i) => (
+              <div
+                key={title}
+                className="audience-row reveal-item"
+                style={{ "--delay": `${i * 50}ms` } as React.CSSProperties}
+              >
+                <div className="audience-row__num" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div className="audience-row__text">
+                  <div className="audience-row__name">{title}</div>
+                  <div className="audience-row__desc">{desc}</div>
+                </div>
+                <ArrowRight size={16} className="audience-row__arrow" aria-hidden="true" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          PROCESS — numbered editorial row
+      ════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`section process reveal-section${processReveal.visible ? " is-visible" : ""}`}
+        ref={processReveal.ref as React.RefObject<HTMLElement>}
+      >
+        <div className="container">
+          <div className="process-header reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
+            <Eyebrow>YOUR JOURNEY STARTS HERE</Eyebrow>
+            <h2>How It Works.</h2>
+          </div>
+          <div className="process-list">
+            {steps.map(([number, title, copy], i) => (
+              <div
+                key={title}
+                className="process-item reveal-item"
+                style={{ "--delay": `${i * 90}ms` } as React.CSSProperties}
+              >
+                <span className="process-item__num" aria-hidden="true">{number}</span>
+                <div className="process-item__body">
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="process-action reveal-item" style={{ "--delay": "400ms" } as React.CSSProperties}>
+            <WhatsAppLink className="button button--primary">
+              Start Planning Today <ArrowRight size={16} />
+            </WhatsAppLink>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          PACKAGES — asymmetric 2×2 image gallery
+      ════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`packages reveal-section${packagesReveal.visible ? " is-visible" : ""}`}
+        ref={packagesReveal.ref as React.RefObject<HTMLElement>}
+      >
+        <div className="container packages__head reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
+          <Eyebrow>EXPLORE THE POSSIBILITIES</Eyebrow>
+          <h2>Where Would You<br />Like to Go Next?</h2>
+          <p>Every memorable journey starts with an idea.</p>
+        </div>
+        <div className="container packages__grid">
+          {experienceCategories.map((item, i) => (
+            <PackageCard key={item.title} item={item} index={i} visible={packagesReveal.visible} />
+          ))}
+        </div>
+        <div className="container">
+          <p className="package-note">
+            Experiences are planned around your verified requirements.
+            No fixed dates, prices, or destinations until confirmed.
+          </p>
+        </div>
+      </section>
+
+      {/* PROMISE — full-bleed photographic */}
+      <section className="promise" aria-label="Our brand promise">
+        <div
+          className="promise__bg"
+          style={{ backgroundImage: `url(${images.promise})` }}
+          aria-hidden="true"
+        />
+        <div className="promise__overlay" aria-hidden="true" />
+        <div className="container promise__content">
+          <Eyebrow light>OUR BRAND PROMISE</Eyebrow>
+          <h2>Your Plans Matter.<br /><em>Your Experience Matters More.</em></h2>
+          <p>
+            From the first conversation to delivery of the agreed service, we are committed
+            to thoughtful planning, clear communication, and a positive experience every time.
+          </p>
+          <strong>EXCELLENT AND EXCEPTIONAL SERVICE.</strong>
+          <WhatsAppLink className="button button--champagne">
+            Let&apos;s Plan Something Great <ArrowRight size={16} />
+          </WhatsAppLink>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section faq-section">
+        <div className="container faq-grid">
+          <div>
+            <Eyebrow>HELPFUL INFORMATION</Eyebrow>
+            <h2>Questions Before You Book?</h2>
+            <p>Find quick answers, or speak directly with our team.</p>
+            <a href={PHONE_LINK} className="text-link faq-phone">
+              <Phone size={15} /> {PHONE_DISPLAY}
+            </a>
+          </div>
+          <FaqList items={faqs} />
+        </div>
+      </section>
+
+      <FinalCta />
+    </>
+  )
+}
+
+function ServiceCard({ service, index = 0, visible = false }: { service: typeof services[number]; index?: number; visible?: boolean }) {
+  const num = String(index + 1).padStart(2, "0")
+  return (
+    <Link
+      className={`service-card reveal-item${visible ? " is-visible" : ""}`}
+      to={`/services/${service.slug}`}
+      style={{ "--delay": `${index * 100}ms` } as React.CSSProperties}
+    >
+      <img src={service.image} alt={service.title} loading="lazy" />
+      <span className="service-card__overlay" />
+      <span className="service-card__num" aria-hidden="true">{num}</span>
+      <span className="service-card__copy">
+        <span className="service-card__label">{service.short}</span>
+        <span className="service-card__title">{service.title}</span>
+        <span className="service-card__arrow">
+          View Service <ArrowRight size={13} />
+        </span>
+      </span>
+    </Link>
+  )
+}
+
+function PackageCard({ item, index = 0, visible = false }: { item: typeof experienceCategories[number]; index?: number; visible?: boolean }) {
+  const message = `Hello Tarek Logistics Limited, I would like to enquire about ${item.title}.`
+  const isTall = index === 0 || index === 3
+  return (
+    <article
+      className={`pkg-card reveal-item${isTall ? " pkg-card--tall" : ""}${visible ? " is-visible" : ""}`}
+      style={{ "--delay": `${index * 100}ms` } as React.CSSProperties}
+    >
+      <div className="pkg-card__img">
+        <img src={item.image} alt={item.title} loading="lazy" />
+      </div>
+      <div className="pkg-card__body">
+        <h3>{item.title}</h3>
+        <p>{item.copy}</p>
+        <a className="pkg-card__link" href={whatsappUrl(message)} target="_blank" rel="noreferrer">
+          Enquire <ArrowRight size={14} />
+        </a>
+      </div>
+    </article>
+  )
+}
+
+export function About() {
+  const values = [
+    "Excellence",
+    "Affordability",
+    "Customer focus",
+    "Professionalism",
+    "Memorable experiences",
+  ]
+  return (
+    <>
+      <PageHero
+        eyebrow="ABOUT TAREK LOGISTICS"
+        title="Thoughtful planning. Professional coordination. Meaningful experiences."
+        copy="We help individuals, groups, and organisations turn travel, logistics, training, and event plans into well-coordinated experiences."
+        image={images.about}
+      />
+      <section className="section">
+        <div className="container story-grid">
+          <div>
+            <Eyebrow>WHO WE ARE</Eyebrow>
+            <h2>Service that begins by listening.</h2>
+          </div>
+          <div>
+            <p>
+              At Tarek Logistics Limited, we believe the best experiences begin
+              with a clear understanding of what matters to the client.
+            </p>
+            <p>
+              We support travel, excursions, pilgrimage, protocol, logistics,
+              training, and events with careful planning, clear communication,
+              and professional coordination.
+            </p>
+            <p>
+              We do not believe in one-size-fits-all arrangements. We discuss
+              your needs, explore suitable options, and agree the details before
+              the service begins.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="section mission-section">
+        <div className="container mission-grid">
+          <article>
+            <span>01</span>
+            <h2>Our Mission</h2>
+            <p>
+              To provide accessible, dependable, and professionally coordinated
+              travel, logistics, training, and event services that create
+              meaningful experiences for individuals, groups, and organisations.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h2>Our Vision</h2>
+            <p>
+              To become a trusted choice for travel experiences, logistics
+              coordination, and event services, recognised for quality,
+              affordability, and customer satisfaction.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container values-layout">
+          <SectionHeading
+            eyebrow="WHAT GUIDES US"
+            title="Our core values shape every conversation and every plan."
+          />
+          <div className="values-list">
+            {values.map((value, index) => (
+              <div key={value}>
+                <span>0{index + 1}</span>
+                <strong>{value}</strong>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="motto-band">
+        <div className="container">
+          <Eyebrow light>OUR MOTTO</Eyebrow>
+          <h2>Excellent and Exceptional Service.</h2>
+          <p>
+            A simple promise that keeps our attention on careful coordination
+            and a positive client experience.
+          </p>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <SectionHeading
+            centered
+            eyebrow="WHAT WE DO"
+            title="One team for journeys, programmes, and important moments."
+          />
+          <div className="compact-service-grid">
+            {services.map((service) => (
+              <Link key={service.slug} to={`/services/${service.slug}`}>
+                <service.icon size={21} />
+                <span>{service.title}</span>
+                <ArrowRight size={16} />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+      <FinalCta />
+    </>
+  )
+}
+
+export function ServicesPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="OUR SERVICES"
+        title="Planning support for wherever life takes you."
+        copy="Explore professional travel, logistics, training, and event services shaped around the needs of individuals and organisations."
+        image={images.events}
+      />
+      <section className="section">
+        <div className="container">
+          <SectionHeading
+            eyebrow="EVERY SERVICE"
+            title="Tell us what you need. We’ll help you explore the next step."
+            copy="Each arrangement begins with a conversation about your purpose, dates, group, preferences, and budget where applicable."
+          />
+          <div className="services-list">
+            {services.map((service, index) => (
+              <article key={service.slug} id={service.slug}>
+                <div className="services-list__number">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <div className="services-list__icon">
+                  <service.icon size={24} />
+                </div>
+                <div>
+                  <h2>{service.title}</h2>
+                  <p>{service.description}</p>
+                  <span>{service.short}</span>
+                </div>
+                <Link to={`/services/${service.slug}`}>
+                  View service <ArrowRight size={17} />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <FinalCta />
+    </>
+  )
+}
+
+export function ServiceDetail() {
+  const { slug } = useParams()
+  const service = services.find((item) => item.slug === slug)
+  if (!service) return <NotFound />
+  const related = services.filter((item) => item.slug !== slug).slice(0, 3)
+  return (
+    <>
+      <PageHero
+        eyebrow="TAREK LOGISTICS SERVICE"
+        title={service.title}
+        copy={service.description}
+        image={service.image}
+      />
+      <section className="section">
+        <div className="container detail-grid">
+          <div>
+            <Eyebrow>WHO IT IS FOR</Eyebrow>
+            <h2>Planned around the people involved.</h2>
+            <p>{service.audience}</p>
+            <WhatsAppLink message={service.message}>
+              {`Enquire About ${service.title}`} <ArrowRight size={18} />
+            </WhatsAppLink>
+          </div>
+          <div className="detail-panel">
+            <h2>What this service can include</h2>
+            <p>
+              The exact arrangement is discussed and agreed based on your
+              requirements. It may include:
+            </p>
+            {service.includes.map((item) => (
+              <div key={item}>
+                <CheckCircle2 size={18} /> {item}
+              </div>
+            ))}
+            <small>
+              Inclusions, availability, pricing, and timelines are confirmed
+              only after we understand your needs.
+            </small>
+          </div>
+        </div>
+      </section>
+      <section className="section related">
+        <div className="container">
+          <SectionHeading
+            eyebrow="RELATED SERVICES"
+            title="You may also be interested in"
+          />
+          <div className="related-grid">
+            {related.map((item) => (
+              <Link key={item.slug} to={`/services/${item.slug}`}>
+                <item.icon size={23} />
+                <h3>{item.title}</h3>
+                <p>{item.short}</p>
+                <ArrowRight size={17} />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section faq-section">
+        <div className="container faq-grid">
+          <div>
+            <Eyebrow>BEFORE YOU ENQUIRE</Eyebrow>
+            <h2>Useful questions to consider.</h2>
+            <p>
+              Have your preferred dates, group size, purpose, and budget ready
+              where applicable. This helps us discuss suitable options.
+            </p>
+          </div>
+          <FaqList items={faqs.slice(2, 7)} />
+        </div>
+      </section>
+      <FinalCta />
+    </>
+  )
+}
+
+export function Tours() {
+  const filters = [
+    "All experiences",
+    "Educational",
+    "Group travel",
+    "Ecotourism",
+    "Pilgrimage",
+  ]
+  const [activeFilter, setActiveFilter] = useState(filters[0])
+  const filteredExperiences =
+    activeFilter === filters[0]
+      ? experienceCategories
+      : experienceCategories.filter((item) => {
+          const categoryTerms: Record<string, string> = {
+            Educational: "Educational",
+            "Group travel": "Group",
+            Ecotourism: "Ecotourism",
+            Pilgrimage: "Pilgrimage",
+          }
+          return item.title.includes(categoryTerms[activeFilter])
+        })
+  return (
+    <>
+      <PageHero
+        eyebrow="TOURS & PACKAGES"
+        title="Start with an idea. We’ll explore the possibilities together."
+        copy="Browse travel categories available for inquiry. Genuine package details will be displayed here only when dates, destinations, and prices are verified."
+        image={images.nature}
+      />
+      <section className="section">
+        <div className="container">
+          <div className="filter-row">
+            <span>Explore by category</span>
+            {filters.map((item) => (
+              <button
+                className={activeFilter === item ? "is-active" : ""}
+                key={item}
+                onClick={() => setActiveFilter(item)}
+                aria-pressed={activeFilter === item}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+          <div className="package-grid package-grid--large">
+            {filteredExperiences.map((item) => (
+              <PackageCard key={item.title} item={item} visible={true} />
+            ))}
+          </div>
+          <div className="empty-info">
+            <strong>Looking for dates, destinations, or pricing?</strong>
+            <p>
+              Package details depend on verified availability and your
+              requirements. Send an inquiry and tell us what you have in mind.
+            </p>
+            <WhatsAppLink>
+              Request Current Details <ArrowRight size={18} />
+            </WhatsAppLink>
+          </div>
+        </div>
+      </section>
+      <FinalCta />
+    </>
+  )
+}
+
+export function Contact() {
+  return (
+    <>
+      <PageHero
+        eyebrow="CONTACT TAREK LOGISTICS"
+        title="Tell us what you’re planning."
+        copy="A journey, excursion, event, programme, or logistics requirement — begin with a simple conversation."
+      />
+      <section className="section contact-section">
+        <div className="container contact-grid">
+          <div className="contact-aside">
+            <Eyebrow>DIRECT CONTACT</Eyebrow>
+            <h2>Speak with our team.</h2>
+            <p>
+              For the quickest response, call or send a WhatsApp message with
+              the service you need and any important dates.
+            </p>
+            <a
+              href={whatsappUrl(
+                "Hello Tarek Logistics Limited, I would like to make an inquiry about your services.",
+              )}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MessageCircle />
+              <span>
+                <small>WhatsApp</small>
+                <strong>{PHONE_DISPLAY}</strong>
+              </span>
+            </a>
+            <a href={PHONE_LINK}>
+              <Phone />
+              <span>
+                <small>Telephone</small>
+                <strong>{PHONE_DISPLAY}</strong>
+              </span>
+            </a>
+            <a href={`mailto:${EMAIL}`}>
+              <span className="mail-symbol">@</span>
+              <span>
+                <small>Email</small>
+                <strong>{EMAIL}</strong>
+              </span>
+            </a>
+            <div className="contact-hours">
+              <strong>Helpful details to include</strong>
+              <p>
+                Service required, preferred date, destination or venue, group
+                size, and budget where applicable.
+              </p>
+            </div>
+          </div>
+          <ContactForm />
+        </div>
+      </section>
+    </>
+  )
+}
+
+export function Privacy() {
+  return (
+    <>
+      <PageHero
+        eyebrow="PRIVACY"
+        title="Privacy Policy"
+        copy="How information shared through this website is handled."
+      />
+      <section className="section">
+        <div className="container legal-copy">
+          <h2>Information you choose to share</h2>
+          <p>
+            This website does not submit inquiry forms to a private database.
+            The contact form prepares the details you enter in a WhatsApp
+            message, which you review and send manually.
+          </p>
+          <h2>Contact information</h2>
+          <p>
+            If you contact Tarek Logistics Limited by phone, email, or WhatsApp,
+            the information you provide is used to respond to your inquiry and
+            discuss the requested service.
+          </p>
+          <h2>External services</h2>
+          <p>
+            WhatsApp and email links open third-party applications. Their own
+            privacy policies apply when you use those services.
+          </p>
+          <h2>Questions</h2>
+          <p>
+            For privacy questions, email <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            .
+          </p>
+        </div>
+      </section>
+    </>
+  )
+}
+
+export function NotFound() {
+  return (
+    <section className="not-found">
+      <div>
+        <span>404</span>
+        <Eyebrow>PAGE NOT FOUND</Eyebrow>
+        <h1>This journey took an unexpected turn.</h1>
+        <p>The page you requested may have moved or no longer exists.</p>
+        <Link className="button button--primary" to="/">
+          Return Home <ArrowRight size={18} />
+        </Link>
+      </div>
+    </section>
+  )
+}
