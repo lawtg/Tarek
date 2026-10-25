@@ -20,7 +20,7 @@ export const whatsappUrl = (message: string) =>
   `https://wa.me/2348182621701?text=${encodeURIComponent(message)}`
 
 export const images = {
-  hero: "/photo-glad-smiling-afro-american-teenager-calls-someone-via-cellphone-keeps-laptop-computer-knees-sits-bench-outdoor-uses-gadgets-studying-online-bloggs-fashion-lifestyle-technology.jpg",
+  hero: "/medium-shot-people-travel-agency-office (1).jpg",
   educational:
     "/educational tour.jpg",
   group:
