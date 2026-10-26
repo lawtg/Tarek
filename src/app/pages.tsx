@@ -259,36 +259,39 @@ export function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 03 — WHAT WE CREATE (services editorial gallery)
+          SECTION 03 — WHAT WE CREATE (services editorial list)
       ════════════════════════════════════════════════════════════════ */}
       <section
         className={`services-section reveal-section${servicesReveal.visible ? " is-visible" : ""}`}
         id="services"
         ref={servicesReveal.ref as React.RefObject<HTMLElement>}
       >
-        <div className="services-section__head container">
-          <div className="reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
-            <Eyebrow light>WHAT WE CREATE</Eyebrow>
-            <h2 className="services-section__title">What We Plan For You</h2>
-          </div>
-          <p className="services-section__sub reveal-item" style={{ "--delay": "100ms" } as React.CSSProperties}>
-            Travel, tours, pilgrimage, protocol, and more — each experience
-            thoughtfully coordinated from first enquiry to final delivery.
-          </p>
-        </div>
         <div className="container">
-          <div className="service-grid">
+          <div className="svc-head reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
+            <Eyebrow>WHAT WE PLAN FOR YOU</Eyebrow>
+            <h2 className="svc-head__title">Our Services</h2>
+            <p className="svc-head__sub">
+              From educational tours to corporate protocol — every experience
+              thoughtfully coordinated from first enquiry to final delivery.
+            </p>
+          </div>
+          <div className="svc-list">
             {visibleServices.map((service, i) => (
               <ServiceCard key={service.slug} service={service} index={i} visible={servicesReveal.visible} />
             ))}
           </div>
-          <div className="service-links reveal-item" style={{ "--delay": "400ms" } as React.CSSProperties}>
-            <span>Also available</span>
-            {moreServices.map((service) => (
-              <Link key={service.slug} to={`/services/${service.slug}`}>
-                {service.title} <ArrowRight size={13} />
-              </Link>
-            ))}
+          <div className="svc-more reveal-item" style={{ "--delay": "500ms" } as React.CSSProperties}>
+            <span>More services</span>
+            <div className="svc-more__links">
+              {moreServices.map((service) => (
+                <Link key={service.slug} to={`/services/${service.slug}`}>
+                  {service.title}
+                </Link>
+              ))}
+            </div>
+            <Link className="svc-more__all" to="/services">
+              View all services <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
@@ -543,19 +546,21 @@ function ServiceCard({ service, index = 0, visible = false }: { service: typeof 
   const num = String(index + 1).padStart(2, "0")
   return (
     <Link
-      className={`service-card reveal-item${visible ? " is-visible" : ""}`}
+      className={`svc-item reveal-item${visible ? " is-visible" : ""}`}
       to={`/services/${service.slug}`}
-      style={{ "--delay": `${index * 100}ms` } as React.CSSProperties}
+      style={{ "--delay": `${index * 80}ms` } as React.CSSProperties}
     >
-      <img src={service.image} alt={service.title} loading="lazy" />
-      <span className="service-card__overlay" />
-      <span className="service-card__num" aria-hidden="true">{num}</span>
-      <span className="service-card__copy">
-        <span className="service-card__label">{service.short}</span>
-        <span className="service-card__title">{service.title}</span>
-        <span className="service-card__arrow">
-          View Service <ArrowRight size={13} />
-        </span>
+      <span className="svc-item__num" aria-hidden="true">{num}</span>
+      <div className="svc-item__body">
+        <h3 className="svc-item__title">{service.title}</h3>
+        <p className="svc-item__desc">{service.short}</p>
+      </div>
+      <div className="svc-item__img" aria-hidden="true">
+        <img src={service.image} alt="" loading="lazy" />
+      </div>
+      <span className="svc-item__action">
+        <span>Explore</span>
+        <ArrowRight size={16} />
       </span>
     </Link>
   )
