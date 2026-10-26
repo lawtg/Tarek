@@ -17,15 +17,13 @@ export function Logo({ light = false }: { light?: boolean }) {
     <Link
       to="/"
       className={`logo ${light ? "logo--light" : ""}`}
-      aria-label="Tarek Logistics Limited home"
+      aria-label="Tarek Travels and Logistics Limited home"
     >
-      <span className="logo-mark" aria-hidden="true">
-        <span>T</span>
-      </span>
-      <span className="logo-copy">
-        <strong>TAREK</strong>
-        <small>LOGISTICS LIMITED</small>
-      </span>
+      <img
+        src="/logo.jpeg"
+        alt="Tarek Travels and Logistics Limited"
+        className="logo-img"
+      />
     </Link>
   )
 }
