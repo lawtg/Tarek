@@ -602,8 +602,7 @@ export function About() {
           </div>
           <div>
             <p>
-              At Tarek Logistics Limited, we believe the best experiences begin
-              with a clear understanding of what matters to the client.
+              Tarek Travels and Logistics was founded to make quality travel and event coordination accessible — regardless of group size or budget.
             </p>
             <p>
               We support travel, excursions, pilgrimage, protocol, logistics,
@@ -694,8 +693,8 @@ export function ServicesPage() {
     <>
       <PageHero
         eyebrow="OUR SERVICES"
-        title="Planning support for wherever life takes you."
-        copy="Explore professional travel, logistics, training, and event services shaped around the needs of individuals and organisations."
+        title="Every service we offer."
+        copy="From educational tours and pilgrimages to protocol, training, and event planning — browse all our services and enquire directly."
         image={images.events}
       />
       <section className="section">
@@ -703,7 +702,7 @@ export function ServicesPage() {
           <SectionHeading
             eyebrow="EVERY SERVICE"
             title="Tell us what you need. We’ll help you explore the next step."
-            copy="Each arrangement begins with a conversation about your purpose, dates, group, preferences, and budget where applicable."
+            copy="Click any service for full details, who it's for, and what's typically included. Enquire directly via WhatsApp."
           />
           <div className="services-list">
             {services.map((service, index) => (
@@ -749,14 +748,14 @@ export function ServiceDetail() {
         <div className="container detail-grid">
           <div>
             <Eyebrow>WHO IT IS FOR</Eyebrow>
-            <h2>Planned around the people involved.</h2>
+            <h2>Who is this for?</h2>
             <p>{service.audience}</p>
             <WhatsAppLink message={service.message}>
               {`Enquire About ${service.title}`} <ArrowRight size={18} />
             </WhatsAppLink>
           </div>
           <div className="detail-panel">
-            <h2>What this service can include</h2>
+            <h2>What's typically included</h2>
             <p>
               The exact arrangement is discussed and agreed based on your
               requirements. It may include:
@@ -835,7 +834,7 @@ export function Tours() {
       <PageHero
         eyebrow="TOURS & PACKAGES"
         title="Start with an idea. We’ll explore the possibilities together."
-        copy="Browse travel categories available for inquiry. Genuine package details will be displayed here only when dates, destinations, and prices are verified."
+        copy="Choose a category below and enquire directly via WhatsApp. We'll discuss available options, dates, and pricing based on your requirements."
         image={images.nature}
       />
       <section className="section">
@@ -861,8 +860,8 @@ export function Tours() {
           <div className="empty-info">
             <strong>Looking for dates, destinations, or pricing?</strong>
             <p>
-              Package details depend on verified availability and your
-              requirements. Send an inquiry and tell us what you have in mind.
+              Pricing and availability depend on your group size, dates, and destination.
+              Message us with your idea and we'll come back to you with options.
             </p>
             <WhatsAppLink>
               Request Current Details <ArrowRight size={18} />
@@ -881,16 +880,17 @@ export function Contact() {
       <PageHero
         eyebrow="CONTACT TAREK LOGISTICS"
         title="Tell us what you’re planning."
-        copy="A journey, excursion, event, programme, or logistics requirement — begin with a simple conversation."
+        copy="Whether you have a clear plan or just an idea, reach out and we'll take it from there — no commitment required."
       />
       <section className="section contact-section">
         <div className="container contact-grid">
           <div className="contact-aside">
             <Eyebrow>DIRECT CONTACT</Eyebrow>
-            <h2>Speak with our team.</h2>
+            <h2>We're ready
+            to help.</h2>
             <p>
-              For the quickest response, call or send a WhatsApp message with
-              the service you need and any important dates.
+              WhatsApp is fastest. Call or email us if you prefer.
+              We aim to respond within a few hours on business days.
             </p>
             <a
               href={whatsappUrl(
@@ -978,8 +978,8 @@ export function NotFound() {
       <div>
         <span>404</span>
         <Eyebrow>PAGE NOT FOUND</Eyebrow>
-        <h1>This journey took an unexpected turn.</h1>
-        <p>The page you requested may have moved or no longer exists.</p>
+        <h1>Page not found.</h1>
+        <p>The page you're looking for may have moved. Head back home or contact us directly.</p>
         <Link className="button button--primary" to="/">
           Return Home <ArrowRight size={18} />
         </Link>
