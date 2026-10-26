@@ -205,7 +205,7 @@ export function Layout() {
         <a href={PHONE_LINK}>
           <Phone size={19} /> Call
         </a>
-        <WhatsAppLink className="">
+        <WhatsAppLink className="mobile-whatsapp-btn">
           <MessageCircle size={19} /> WhatsApp
         </WhatsAppLink>
       </div>
@@ -279,23 +279,21 @@ export function FinalCta() {
       <div className="container final-cta__inner">
         <div>
           <Eyebrow light>LET'S START A CONVERSATION</Eyebrow>
-          <h2>Your Next Great Experience Starts Here.</h2>
+          <h2>Ready to Start Planning?</h2>
           <p>
-            Whether you&apos;re planning an excursion, group vacation,
-            pilgrimage, training programme, or important event, let&apos;s
-            discuss how we can help.
+            Tell us what you have in mind. We&apos;ll discuss your requirements
+            and help you take the next step — at no obligation.
           </p>
         </div>
         <div className="final-cta__actions">
           <WhatsAppLink className="button button--white">
-            <MessageCircle size={18} /> Chat With Us on WhatsApp
+            <MessageCircle size={18} /> Chat on WhatsApp
           </WhatsAppLink>
           <a className="button button--outline-light" href={PHONE_LINK}>
             <Phone size={18} /> Call Our Team
           </a>
           <small>
-            Tell us what you are planning. We will discuss your needs and help
-            you explore the next steps.
+            We respond promptly. No commitment required to start a conversation.
           </small>
         </div>
       </div>
@@ -346,10 +344,9 @@ export function ContactForm() {
   return (
     <form className="contact-form" onSubmit={submit} noValidate>
       <div className="form-intro">
-        <h2>Tell us what you&apos;re planning.</h2>
+        <h2>Let&apos;s Talk.</h2>
         <p>
-          Complete the form and we&apos;ll prepare your details in WhatsApp. You
-          will review and send the message yourself.
+          Fill in your details below. We&apos;ll open WhatsApp with your message ready to send — you review it first.
         </p>
       </div>
       <div className="form-grid">

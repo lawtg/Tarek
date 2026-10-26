@@ -117,10 +117,10 @@ export function Home() {
   ]
 
   const steps = [
-    ["01", "Tell Us Your Plans", "Share your service, dates, destination, group size, and budget."],
-    ["02", "Discuss Your Needs", "We explore your expectations and identify suitable options together."],
-    ["03", "Confirm the Details", "Review your proposal, pricing, and arrangements before booking."],
-    ["04", "Get Ready for the Experience", "We coordinate and communicate every preparation requirement."],
+    ["01", "Share Your Plans", "Tell us what you need — destination, dates, group size, and budget. No commitment required."],
+    ["02", "We Discuss Options", "We review your requirements and suggest the right arrangements for your group and budget."],
+    ["03", "Review and Confirm", "You review the full proposal — inclusions, pricing, and arrangements — then confirm when ready."],
+    ["04", "We Handle the Rest", "We coordinate every preparation requirement and keep you informed every step of the way."],
   ]
 
   const planning = [
@@ -163,7 +163,7 @@ export function Home() {
             <div className="hero__copy">
               <p className="hero__eyebrow">
                 <span className="hero__eyebrow-rule" aria-hidden="true" />
-                THE ART OF THE JOURNEY
+                TRAVEL · LOGISTICS · EVENTS
               </p>
               <h1 aria-label="Every Journey Deserves to Be Extraordinary.">
                 <span className="hero__h1-line hero__h1-line--1">Every Journey</span>
@@ -171,15 +171,15 @@ export function Home() {
                 <span className="hero__h1-line hero__h1-line--3"><em>Extraordinary.</em></span>
               </h1>
               <p className="hero__sub">
-                Affordable travel, seamless logistics, and memorable experiences —
-                thoughtfully planned around you.
+                We plan travel, educational tours, pilgrimages, protocol, events,
+                and logistics — so your group can focus entirely on the experience.
               </p>
               <div className="hero__actions">
                 <WhatsAppLink
                   message="Hello Tarek Logistics Limited, I would like to plan an experience."
                   className="button hero__btn hero__btn--primary"
                 >
-                  Plan Your Experience
+                  Start Planning — It's Free
                   <span className="hero__btn-arrow" aria-hidden="true">
                     <ArrowRight size={16} />
                   </span>
@@ -211,8 +211,8 @@ export function Home() {
         <div className="container">
           <div className="planning-strip">
             <div className="planning-intro">
-              <p className="planning-intro__label">Start here</p>
-              <h2>What are you planning?</h2>
+              <p className="planning-intro__label">Quick start</p>
+              <h2>What do you need?</h2>
             </div>
             <nav className="planning-links" aria-label="Quick planning links">
               {planning.map(([title, copy, Icon, link]) => (
@@ -267,11 +267,11 @@ export function Home() {
         <div className="services-section__head container">
           <div className="reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
             <Eyebrow light>WHAT WE CREATE</Eyebrow>
-            <h2 className="services-section__title">Our Experiences</h2>
+            <h2 className="services-section__title">What We Plan For You</h2>
           </div>
           <p className="services-section__sub reveal-item" style={{ "--delay": "100ms" } as React.CSSProperties}>
-            Four areas of expertise. One commitment — to plan every detail so
-            you can focus entirely on the experience.
+            Travel, tours, pilgrimage, protocol, and more — each experience
+            thoughtfully coordinated from first enquiry to final delivery.
           </p>
         </div>
         <div className="container">
@@ -310,10 +310,11 @@ export function Home() {
           </div>
           <div className="about-copy reveal-item" style={{ "--delay": "200ms" } as React.CSSProperties}>
             <Eyebrow>THE TAREK STORY</Eyebrow>
-            <h2>More Than Logistics.</h2>
+            <h2>Travel &amp; Events,
+            Planned Right.</h2>
             <p className="about-copy__lead">
-              We create experiences worth remembering — for individuals, groups,
-              schools, churches, and organisations.
+              Tarek Travels and Logistics plans every detail — so you arrive, meet,
+              travel, and celebrate without the stress of coordination.
             </p>
             <p>
               From educational excursions and group vacations to pilgrimage, protocol,
@@ -400,10 +401,10 @@ export function Home() {
         <div className="container audience__inner">
           <div className="audience__head">
             <p className="audience__eyebrow">WHO WE SERVE</p>
-            <h2>One Partner.<br />Every Need.</h2>
+            <h2>Who We
+            Work With.</h2>
             <p className="audience__sub">
-              Whether you are planning for yourself or coordinating an
-              experience for hundreds — we are ready to discuss.
+              From individuals to large groups, schools to corporations — we handle the logistics so you can focus on the moment.
             </p>
             <Link className="button button--outline-light" to="/contact">
               Tell Us What You Need <ArrowRight size={16} />
@@ -440,7 +441,8 @@ export function Home() {
         <div className="container">
           <div className="process-header reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
             <Eyebrow>YOUR JOURNEY STARTS HERE</Eyebrow>
-            <h2>How It Works.</h2>
+            <h2>From First Message
+            to Memorable Experience.</h2>
           </div>
           <div className="process-list">
             {steps.map(([number, title, copy], i) => (
@@ -474,8 +476,8 @@ export function Home() {
       >
         <div className="container packages__head reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
           <Eyebrow>EXPLORE THE POSSIBILITIES</Eyebrow>
-          <h2>Where Would You<br />Like to Go Next?</h2>
-          <p>Every memorable journey starts with an idea.</p>
+          <h2>Choose Your<br />Experience.</h2>
+          <p>Tailored for schools, families, churches, and organisations — tell us your idea and we'll plan it around you.</p>
         </div>
         <div className="container packages__grid">
           {experienceCategories.map((item, i) => (
@@ -499,7 +501,7 @@ export function Home() {
         />
         <div className="promise__overlay" aria-hidden="true" />
         <div className="container promise__content">
-          <Eyebrow light>OUR BRAND PROMISE</Eyebrow>
+          <Eyebrow light>WHY CLIENTS CHOOSE US</Eyebrow>
           <h2>Your Plans Matter.<br /><em>Your Experience Matters More.</em></h2>
           <p>
             From the first conversation to delivery of the agreed service, we are committed
@@ -517,8 +519,8 @@ export function Home() {
         <div className="container faq-grid">
           <div>
             <Eyebrow>HELPFUL INFORMATION</Eyebrow>
-            <h2>Questions Before You Book?</h2>
-            <p>Find quick answers, or speak directly with our team.</p>
+            <h2>Common Questions.</h2>
+            <p>Quick answers below — or reach our team directly and we'll respond promptly.</p>
             <a href={PHONE_LINK} className="text-link faq-phone">
               <Phone size={15} /> {PHONE_DISPLAY}
             </a>
