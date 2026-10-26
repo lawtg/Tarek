@@ -89,30 +89,15 @@
 
 /* ── HEADER ──────────────────────────────────────────────────────────────── */
 .site-header {
-  height: 80px;
+  height: 76px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  transition: background 0.4s var(--ease-out), border-color 0.4s, box-shadow 0.4s;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-}
-.site-header.is-scrolled {
-  background: rgba(247, 245, 240, 0.96);
-  border-bottom-color: var(--border);
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(20px);
-}
-.site-header.is-dark {
-  background: transparent;
-  border-bottom-color: transparent;
-}
-.site-header.is-dark.is-scrolled {
-  background: rgba(4, 19, 33, 0.94);
-  border-bottom-color: rgba(255,255,255,.08);
-  backdrop-filter: blur(20px);
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(7,27,48,.07);
 }
 .header-inner {
   width: var(--container);
@@ -120,37 +105,98 @@
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+  gap: 0;
 }
 
-/* Logo */
+/* Logo — left, sized to sit cleanly in the bar */
 .logo {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   flex: none;
+  margin-right: 32px;
   transition: opacity .25s var(--ease-out);
 }
 .logo:hover { opacity: .8; }
 
 .logo-img {
-  height: 52px;
+  height: 60px;
   width: auto;
   display: block;
-  /* mix-blend-mode removes the grey background so the mark
-     reads cleanly on any background colour */
+  /* multiply removes grey background on white header */
   mix-blend-mode: multiply;
-  transition: transform .35s var(--ease-out);
+  transition: transform .3s var(--ease-out);
 }
 .logo:hover .logo-img { transform: scale(1.04); }
 
-/* On dark hero backgrounds, multiply darkens too much —
-   switch to a slight brightness boost instead */
+/* On dark backgrounds (footer) — show white version */
 .logo--light .logo-img {
   mix-blend-mode: normal;
   filter: brightness(0) invert(1);
 }
+
+/* Nav — grows to fill middle */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 32px);
+  flex: 1;
+  justify-content: center;
+}
+.desktop-nav a {
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: 8px 0;
+  position: relative;
+  transition: color .22s;
+  white-space: nowrap;
+}
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 50%; right: 50%;
+  bottom: 0;
+  background: var(--blue);
+  border-radius: 2px;
+  transition: left .3s var(--ease-out), right .3s var(--ease-out);
+}
+.desktop-nav a:hover { color: var(--blue); }
+.desktop-nav a.active { color: var(--blue); font-weight: 700; }
+.desktop-nav a.active::after, .desktop-nav a:hover::after { left: 0; right: 0; }
+
+/* Right group — phone + CTA */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: none;
+  margin-left: 32px;
+}
+.header-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color .2s;
+}
+.header-phone:hover { color: var(--blue); }
+.header-phone svg { color: var(--blue); flex-shrink: 0; }
+.header-cta {
+  min-height: 40px;
+  padding: 0 20px;
+  font-size: 12.5px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.menu-toggle, .mobile-menu { display: none; }
 
 /* Nav */
 .desktop-nav { display: flex; align-items: center; gap: clamp(18px, 2vw, 34px); }
@@ -177,9 +223,7 @@
 .desktop-nav a:hover { color: var(--navy); }
 .desktop-nav a.active { color: var(--navy); }
 .desktop-nav a.active::after, .desktop-nav a:hover::after { left: 0; right: 0; }
-.site-header.is-dark:not(.is-scrolled) .desktop-nav a { color: rgba(255,255,255,.6); }
-.site-header.is-dark:not(.is-scrolled) .desktop-nav a:hover,
-.site-header.is-dark:not(.is-scrolled) .desktop-nav a.active { color: white; }
+
 
 /* Buttons — unified, refined */
 .button {
@@ -226,10 +270,6 @@
 .button--white:hover { background: var(--ivory); }
 .button--gold { color: var(--navy-deep); background: var(--champagne); box-shadow: 0 8px 24px rgba(184,155,107,.2); }
 .button--gold:hover { background: var(--champagne-light); }
-/* header CTA — smaller */
-.header-cta { min-height: 40px; padding: 0 18px; font-size: 12px; }
-.site-header.is-dark:not(.is-scrolled) .header-cta { background: rgba(7,65,162,.18); color: white; border: 1px solid rgba(7,65,162,.4); }
-.site-header.is-dark:not(.is-scrolled) .header-cta:hover { background: rgba(7,65,162,.32); }
 .menu-toggle, .mobile-menu { display: none; }
 
 /* ── EYEBROW ─────────────────────────────────────────────────────────────── */
@@ -269,8 +309,8 @@
   flex-direction: column;
   overflow: hidden;
   background: var(--navy-deep);
-  /* prevent FOUC while image loads */
-  contain: layout style paint;
+  /* push content below the always-visible solid header */
+  padding-top: 76px;
 }
 
 /* ── Background image ── */
@@ -635,20 +675,8 @@
   .hero__content { padding-bottom: 56px; }
 }
 
-/* ── Refined header (overrides where needed) ── */
-.site-header {
-  height: 76px;
-}
-.desktop-nav a {
-  font-size: 12px;
-  letter-spacing: .03em;
-}
-/* Nav active underline is always champagne */
-.site-header.is-dark:not(.is-scrolled) .desktop-nav a::after { background: var(--blue); }
-/* Scrolled-dark state: nav links become white */
-.site-header.is-dark.is-scrolled .desktop-nav a { color: rgba(255,255,255,.65); }
-.site-header.is-dark.is-scrolled .desktop-nav a:hover,
-.site-header.is-dark.is-scrolled .desktop-nav a.active { color: white; }
+
+
 
 /* ─────────────────────────────────────────────────────────────────────────
    SECTION 02 — BRAND PHILOSOPHY
@@ -1683,7 +1711,7 @@
   .section { padding: 88px 0; }
   .desktop-nav, .header-cta { display: none; }
   .menu-toggle { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5px; border: 0; background: transparent; color: var(--navy); cursor: pointer; width: 44px; height: 44px; padding: 10px; }
-  .site-header.is-dark:not(.is-scrolled) .menu-toggle { color: white; }
+
   /* hamburger bars */
   .menu-toggle__bar {
     display: block;

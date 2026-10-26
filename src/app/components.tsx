@@ -59,22 +59,16 @@ const nav = [
 
 export function Header() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-  const isHome = location.pathname === "/"
 
   useEffect(() => setOpen(false), [location.pathname])
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 60)
-    handler()
-    window.addEventListener("scroll", handler, { passive: true })
-    return () => window.removeEventListener("scroll", handler)
-  }, [])
 
   return (
-    <header className={`site-header${scrolled ? " is-scrolled" : ""}${isHome ? " is-dark" : ""}`}>
+    <header className="site-header">
       <div className="header-inner">
-        <Logo light={isHome && !scrolled} />
+        {/* Logo — always on white, fully visible */}
+        <Logo />
+        {/* Nav — centered */}
         <nav className="desktop-nav" aria-label="Main navigation">
           {nav.map(([to, label]) => (
             <NavLink key={to} to={to} end={to === "/"}>
@@ -82,12 +76,19 @@ export function Header() {
             </NavLink>
           ))}
         </nav>
-        <WhatsAppLink
-          message="Hello Tarek Logistics Limited, I would like to plan a journey."
-          className="button button--primary header-cta"
-        >
-          <MessageCircle size={16} /> Plan Your Journey
-        </WhatsAppLink>
+        {/* Right side — phone + CTA */}
+        <div className="header-right">
+          <a href={PHONE_LINK} className="header-phone">
+            <Phone size={15} />
+            {PHONE_DISPLAY}
+          </a>
+          <WhatsAppLink
+            message="Hello Tarek Logistics Limited, I would like to plan a journey."
+            className="button button--primary header-cta"
+          >
+            Plan Your Journey <ArrowRight size={15} />
+          </WhatsAppLink>
+        </div>
         <button
           className={`menu-toggle${open ? " is-open" : ""}`}
           onClick={() => setOpen(!open)}
@@ -119,6 +120,8 @@ export function Header() {
         </nav>
       </div>
     </header>
+  )
+}
   )
 }
 
@@ -175,7 +178,6 @@ export function Footer() {
 
 export function Layout() {
   const location = useLocation()
-  const isHome = location.pathname === "/"
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })
     const path = location.pathname
@@ -197,7 +199,7 @@ export function Layout() {
   return (
     <>
       <Header />
-      <main style={isHome ? undefined : { paddingTop: "80px" }}>
+      <main style={{ paddingTop: "76px" }}>
         <Outlet />
       </main>
       <Footer />
