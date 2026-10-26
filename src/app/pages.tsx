@@ -124,9 +124,9 @@ export function Home() {
   ]
 
   const planning = [
-    ["Tours & Vacations", "Explore new destinations.", Users, "/tours"],
-    ["Group Excursions", "Travel together, create memories.", GraduationCap, "/services/educational-tourism"],
-    ["Events & Logistics", "Professional support, every step.", Building2, "/services/protocol-events"],
+    ["Tours & Vacations", "Group & individual travel.", Users, "/tours"],
+    ["Educational Tours", "Schools & learning groups.", GraduationCap, "/services/educational-tourism"],
+    ["Protocol & Events", "Corporate & event coordination.", Building2, "/services/protocol-events"],
   ] as const
 
   const servicesReveal = useReveal()
@@ -195,11 +195,13 @@ export function Home() {
         {/* Bottom metadata strip */}
         <div className="hero__meta" aria-hidden="true">
           <div className="hero__inner">
-            <span className="hero__meta-item">Since 2020</span>
+            <span className="hero__meta-item">Est. 2020</span>
             <span className="hero__meta-divider" />
-            <span className="hero__meta-item">Tarek Logistics Limited</span>
+            <span className="hero__meta-item">Tarek Travels &amp; Logistics</span>
             <span className="hero__meta-divider" />
             <span className="hero__meta-item">Nigeria</span>
+            <span className="hero__meta-divider" />
+            <span className="hero__meta-item">Travel · Events · Logistics</span>
           </div>
         </div>
       </section>
@@ -281,7 +283,7 @@ export function Home() {
             ))}
           </div>
           <div className="service-links reveal-item" style={{ "--delay": "400ms" } as React.CSSProperties}>
-            <span>More services</span>
+            <span>Also available</span>
             {moreServices.map((service) => (
               <Link key={service.slug} to={`/services/${service.slug}`}>
                 {service.title} <ArrowRight size={13} />
@@ -463,6 +465,7 @@ export function Home() {
             <WhatsAppLink className="button button--primary">
               Start Planning Today <ArrowRight size={16} />
             </WhatsAppLink>
+            <p className="process-action__note">No commitment required. We discuss options first.</p>
           </div>
         </div>
       </section>
@@ -486,8 +489,10 @@ export function Home() {
         </div>
         <div className="container">
           <p className="package-note">
-            Experiences are planned around your verified requirements.
-            No fixed dates, prices, or destinations until confirmed.
+            Pricing and dates are confirmed after discussing your requirements.
+            <WhatsAppLink message="Hello Tarek Logistics Limited, I would like to discuss an experience." className="package-note__link">
+              Enquire about any category <ArrowRight size={12} />
+            </WhatsAppLink>
           </p>
         </div>
       </section>
@@ -520,7 +525,7 @@ export function Home() {
           <div>
             <Eyebrow>HELPFUL INFORMATION</Eyebrow>
             <h2>Common Questions.</h2>
-            <p>Quick answers below — or reach our team directly and we'll respond promptly.</p>
+            <p>Quick answers below. Not finding what you need? Call or WhatsApp us directly — we respond the same day.</p>
             <a href={PHONE_LINK} className="text-link faq-phone">
               <Phone size={15} /> {PHONE_DISPLAY}
             </a>
