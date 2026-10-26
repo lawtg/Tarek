@@ -122,8 +122,6 @@ export function Header() {
     </header>
   )
 }
-  )
-}
 
 export function Footer() {
   return (
