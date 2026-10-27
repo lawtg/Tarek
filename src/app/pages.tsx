@@ -211,7 +211,7 @@ export function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 03 — WHAT WE CREATE (services editorial list)
+          SECTION 03 — WHAT WE CREATE (services card grid)
       ════════════════════════════════════════════════════════════════ */}
       <section
         className={`services-section reveal-section${servicesReveal.visible ? " is-visible" : ""}`}
@@ -227,20 +227,12 @@ export function Home() {
               thoughtfully coordinated from first enquiry to final delivery.
             </p>
           </div>
-          <div className="svc-list">
-            {visibleServices.map((service, i) => (
+          <div className="svc-grid">
+            {services.slice(0, 6).map((service, i) => (
               <ServiceCard key={service.slug} service={service} index={i} visible={servicesReveal.visible} />
             ))}
           </div>
-          <div className="svc-more reveal-item" style={{ "--delay": "500ms" } as React.CSSProperties}>
-            <span>More services</span>
-            <div className="svc-more__links">
-              {moreServices.map((service) => (
-                <Link key={service.slug} to={`/services/${service.slug}`}>
-                  {service.title}
-                </Link>
-              ))}
-            </div>
+          <div className="svc-more reveal-item" style={{ "--delay": "600ms" } as React.CSSProperties}>
             <Link className="svc-more__all" to="/services">
               View all services <ArrowRight size={14} />
             </Link>
@@ -495,24 +487,21 @@ export function Home() {
 }
 
 function ServiceCard({ service, index = 0, visible = false }: { service: typeof services[number]; index?: number; visible?: boolean }) {
-  const num = String(index + 1).padStart(2, "0")
+  const featured = index === 0
   return (
     <Link
-      className={`svc-item reveal-item${visible ? " is-visible" : ""}`}
+      className={`svc-card reveal-item${featured ? " svc-card--featured" : ""}${visible ? " is-visible" : ""}`}
       to={`/services/${service.slug}`}
-      style={{ "--delay": `${index * 80}ms` } as React.CSSProperties}
+      style={{ "--delay": `${index * 70}ms` } as React.CSSProperties}
     >
-      <span className="svc-item__num" aria-hidden="true">{num}</span>
-      <div className="svc-item__body">
-        <h3 className="svc-item__title">{service.title}</h3>
-        <p className="svc-item__desc">{service.short}</p>
-      </div>
-      <div className="svc-item__img" aria-hidden="true">
-        <img src={service.image} alt="" loading="lazy" />
-      </div>
-      <span className="svc-item__action">
-        <span>Explore</span>
-        <ArrowRight size={16} />
+      <span className="svc-card__icon" aria-hidden="true">
+        <service.icon size={26} />
+      </span>
+      <h3 className="svc-card__title">{service.title}</h3>
+      <span className="svc-card__divider" aria-hidden="true" />
+      <p className="svc-card__desc">{service.description}</p>
+      <span className="svc-card__link">
+        Learn More <ArrowRight size={15} />
       </span>
     </Link>
   )
