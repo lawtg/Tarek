@@ -719,93 +719,6 @@
 /* ─────────────────────────────────────────────────────────────────────────
    PLANNING STRIP — overlaps hero bottom, white background
 ───────────────────────────────────────────────────────────────────────── */
-.planning-wrap {
-  background: var(--white);
-  position: relative;
-  z-index: 5;
-  overflow: hidden;
-}
-.planning-strip {
-  background: var(--ivory);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  display: grid;
-  grid-template-columns: 260px 1fr auto;
-  align-items: stretch;
-  transform: translateY(-40px);
-  box-shadow: 0 8px 32px rgba(7,27,48,.10), 0 1px 4px rgba(7,27,48,.06);
-  overflow: hidden;
-}
-.planning-intro {
-  padding: 28px 28px 28px 32px;
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.planning-intro__label {
-  font-family: "Manrope", sans-serif;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 6px;
-}
-.planning-intro h2 {
-  font-size: 22px;
-  color: var(--navy);
-  line-height: 1.1;
-}
-.planning-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: stretch;
-}
-.planning-link {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: var(--navy);
-  text-decoration: none;
-  padding: 22px 22px;
-  border-right: 1px solid var(--border);
-  transition: background .2s, color .2s;
-  position: relative;
-}
-.planning-link:last-child { border-right: 0; }
-.planning-link:hover { background: var(--blue-light); color: var(--blue); }
-.planning-link__icon {
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--white);
-  border: 1px solid var(--border);
-  color: var(--navy);
-  transition: background .2s, color .2s, border-color .2s;
-}
-.planning-link:hover .planning-link__icon { background: var(--blue); color: var(--white); border-color: var(--blue); }
-.planning-link__text { flex: 1; min-width: 0; }
-.planning-link__text strong { display: block; font-size: 12px; font-weight: 700; margin-bottom: 2px; }
-.planning-link__text small { display: block; font-size: 9.5px; color: var(--slate); line-height: 1.3; }
-.planning-link__arrow {
-  color: var(--blue);
-  flex-shrink: 0;
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: opacity .2s, transform .2s var(--ease-out), color .2s;
-  pointer-events: none;
-}
-.planning-link:hover .planning-link__arrow { opacity: 1; transform: translateX(0); color: var(--blue); }
-.planning-cta {
-  margin: 20px 24px;
-  align-self: center;
-  white-space: nowrap;
-}
-
 /* ─────────────────────────────────────────────────────────────────────────
    SECTION 03 — SERVICES (clean editorial list)
 ───────────────────────────────────────────────────────────────────────── */
@@ -1769,10 +1682,7 @@
   .mobile-menu .button { margin: 20px 0; }
   .philosophy { padding: 100px 0; }
   .philosophy h2 { font-size: clamp(38px, 8vw, 58px); }
-  .planning-strip { transform: translateY(0); border-radius: 0; border-left: 0; border-right: 0; border-top: 0; grid-template-columns: 1fr; }
-  .planning-links { grid-template-columns: repeat(3, minmax(200px, 1fr)); overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
-  .planning-link { min-height: 72px; }
-  .planning-cta { display: none; }
+
   .about-grid { grid-template-columns: 1fr; gap: 56px; padding: 80px 0; }
   .about-image__frame img { height: 460px; }
   .about-image__tag { left: 16px; bottom: -14px; }

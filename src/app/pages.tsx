@@ -123,12 +123,6 @@ export function Home() {
     ["04", "We Handle the Rest", "We coordinate every preparation requirement and keep you informed every step of the way."],
   ]
 
-  const planning = [
-    ["Tours & Vacations", "Group & individual travel.", Users, "/tours"],
-    ["Educational Tours", "Schools & learning groups.", GraduationCap, "/services/educational-tourism"],
-    ["Protocol & Events", "Corporate & event coordination.", Building2, "/services/protocol-events"],
-  ] as const
-
   const servicesReveal = useReveal()
   const aboutReveal = useReveal()
   const audienceReveal = useReveal()
@@ -192,35 +186,6 @@ export function Home() {
           </div>
         </div>
       </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          PLANNING STRIP — floats up into hero bottom edge
-      ════════════════════════════════════════════════════════════════ */}
-      <div className="planning-wrap">
-        <div className="container">
-          <div className="planning-strip">
-            <div className="planning-intro">
-              <p className="planning-intro__label">Quick start</p>
-              <h2>What do you need?</h2>
-            </div>
-            <nav className="planning-links" aria-label="Quick planning links">
-              {planning.map(([title, copy, Icon, link]) => (
-                <Link to={link} key={title} className="planning-link">
-                  <span className="planning-link__icon"><Icon size={18} /></span>
-                  <span className="planning-link__text">
-                    <strong>{title}</strong>
-                    <small>{copy}</small>
-                  </span>
-                  <ArrowRight size={14} className="planning-link__arrow" aria-hidden="true" />
-                </Link>
-              ))}
-            </nav>
-            <Link className="button button--primary planning-cta" to="/contact">
-              Let&apos;s Talk <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </div>
 
       {/* ════════════════════════════════════════════════════════════════
           SECTION 02 — BRAND PHILOSOPHY (quiet editorial pause)
