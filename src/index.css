@@ -663,6 +663,7 @@
 .philosophy {
   background: var(--white);
   padding: 120px 0 110px;
+  border-bottom: 1px solid var(--border);
 }
 .philosophy__inner {
   width: var(--container-narrow);
@@ -886,8 +887,11 @@
 /* ─────────────────────────────────────────────────────────────────────────
    SECTION 04 — THE TAREK STORY (refined editorial split)
 ───────────────────────────────────────────────────────────────────────── */
-.about-split { background: var(--ivory); }
-/* .about-split uses .about-grid with padding: 120px 0 built in — no .section needed */
+.about-split {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+/* .about-split uses .about-grid with padding built in */
 
 /* text-link — used across story sections and inner pages */
 .text-link {
@@ -913,7 +917,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
-  padding: 100px 0;
+  padding: 100px 0 112px;
 }
 .about-image { position: relative; }
 .about-image__frame {
@@ -933,12 +937,13 @@
 /* Floating tag — bottom-left, clear of the frame */
 .about-image__tag {
   position: absolute;
-  bottom: -20px;
-  left: 32px;
+  bottom: 24px;
+  left: 24px;
   background: var(--navy);
   color: white;
   padding: 20px 24px;
   max-width: 200px;
+  border-radius: 2px;
 }
 .about-image__tag span {
   display: block;
@@ -981,7 +986,7 @@
 /* ─────────────────────────────────────────────────────────────────────────
    SECTION 05 — DIFFERENCE (aligned header + sticky visual)
 ───────────────────────────────────────────────────────────────────────── */
-.difference { background: var(--white); }
+.difference { background: var(--ivory); }
 .difference__header {
   padding: 96px 0 48px;
 }
@@ -1178,7 +1183,7 @@
 /* ─────────────────────────────────────────────────────────────────────────
    PROCESS — editorial numbered list (replaces center-aligned grid)
 ───────────────────────────────────────────────────────────────────────── */
-.process { background: var(--white); }
+.process { background: var(--white); border-top: 1px solid var(--border); }
 .process-header { margin-bottom: 56px; }
 .process-header h2 {
   font-size: clamp(42px, 5vw, 68px);
@@ -1665,7 +1670,7 @@
 
   .about-grid { grid-template-columns: 1fr; gap: 56px; padding: 80px 0; }
   .about-image__frame img { height: 460px; }
-  .about-image__tag { left: 16px; bottom: -14px; }
+  .about-image__tag { left: 16px; bottom: 20px; }
   .split-grid, .story-grid, .values-layout, .detail-grid, .contact-grid { grid-template-columns: 1fr; gap: 52px; }
   .editorial-image { max-width: 560px; }
   .editorial-image img { height: 460px; }
