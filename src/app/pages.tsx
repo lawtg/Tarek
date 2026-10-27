@@ -191,19 +191,6 @@ export function Home() {
             </div>
           </div>
         </div>
-
-        {/* Bottom metadata strip */}
-        <div className="hero__meta" aria-hidden="true">
-          <div className="hero__inner">
-            <span className="hero__meta-item">Est. 2020</span>
-            <span className="hero__meta-divider" />
-            <span className="hero__meta-item">Tarek Travels &amp; Logistics</span>
-            <span className="hero__meta-divider" />
-            <span className="hero__meta-item">Nigeria</span>
-            <span className="hero__meta-divider" />
-            <span className="hero__meta-item">Travel · Events · Logistics</span>
-          </div>
-        </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
