@@ -605,8 +605,7 @@
   /* audience rows */
   .audience-row { transition: none; }
   .audience-row__arrow { transition: none; }
-  /* process */
-  .process-item__num { transition: none; }
+
   /* difference */
   .diff-photo, .diff-photo img, .diff-item__desc, .diff-item::before, .diff-item__num, .diff-item__title { transition: none; }
   /* text-link */
@@ -1237,71 +1236,6 @@
 /* ─────────────────────────────────────────────────────────────────────────
    PROCESS — editorial numbered list (replaces center-aligned grid)
 ───────────────────────────────────────────────────────────────────────── */
-.process { background: var(--white); border-top: 1px solid var(--border); }
-.process-header { margin-bottom: 56px; }
-.process-header h2 {
-  font-size: clamp(42px, 5vw, 68px);
-  color: var(--navy);
-  line-height: .97;
-  margin-top: 16px;
-}
-.process-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 2px solid var(--blue);
-  position: relative;
-}
-/* dashed connector line between step numbers */
-.process-list::after {
-  content: "";
-  position: absolute;
-  top: 32px;
-  left: 12%;
-  right: 12%;
-  height: 1px;
-  border-top: 1px dashed var(--border);
-  pointer-events: none;
-}
-.process-item {
-  padding: 40px 32px 40px 0;
-  border-right: 1px solid var(--border);
-  position: relative;
-  transition: background .25s;
-}
-.process-item:last-child { border-right: 0; padding-right: 0; }
-.process-item:hover { background: var(--blue-light); }
-.process-item__num {
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(60px, 6vw, 88px);
-  line-height: 1;
-  color: var(--border);
-  display: block;
-  margin-bottom: 20px;
-  letter-spacing: -.03em;
-  transition: color .3s;
-}
-.process-item:hover .process-item__num { color: var(--blue); }
-.process-item__body h3 {
-  font-size: 20px;
-  color: var(--navy);
-  margin-bottom: 10px;
-  line-height: 1.1;
-  transition: color .25s;
-}
-.process-item:hover .process-item__body h3 { color: var(--navy-deep); }
-.process-item__body p {
-  color: var(--slate);
-  font-size: 13px;
-  line-height: 1.75;
-}
-.process-action { margin-top: 52px; }
-.process-action__note {
-  margin-top: 14px;
-  font-size: 11px;
-  color: var(--slate);
-  text-align: center;
-}
-
 /* ─────────────────────────────────────────────────────────────────────────
    TOUR PACKAGES — sleek typographic list
 ───────────────────────────────────────────────────────────────────────── */
@@ -1732,9 +1666,7 @@
   .audience__inner { grid-template-columns: 1fr; gap: 32px; }
   .audience__head { position: static; }
 
-  .process-list { grid-template-columns: 1fr 1fr; border-top: 0; }
-  .process-item { border-right: 0; border-top: 1px solid var(--border); padding: 32px 0; }
-  .process-item:hover { background: transparent; }
+
   /* diff-section 820px handled in its own block */
   /* svc-grid on tablet */
   .svc-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -1766,8 +1698,7 @@
   .about-image__frame img { height: 360px; border-radius: 3px 50px 3px 3px; }
   .about-image__tag { display: none; }
 
-  .process-list { grid-template-columns: 1fr; }
-  .process-item__num { font-size: 52px; margin-bottom: 12px; }
+
   .promise { min-height: 560px; background-position: 60% center; }
   .promise__content { padding: 80px 0; }
   .final-cta__actions .button { justify-content: center; }

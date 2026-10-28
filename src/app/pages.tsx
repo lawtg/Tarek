@@ -120,17 +120,9 @@ export function Home() {
     },
   ]
 
-  const steps = [
-    ["01", "Share Your Plans", "Tell us what you need — destination, dates, group size, and budget. No commitment required."],
-    ["02", "We Discuss Options", "We review your requirements and suggest the right arrangements for your group and budget."],
-    ["03", "Review and Confirm", "You review the full proposal — inclusions, pricing, and arrangements — then confirm when ready."],
-    ["04", "We Handle the Rest", "We coordinate every preparation requirement and keep you informed every step of the way."],
-  ]
-
   const servicesReveal = useReveal()
   const aboutReveal = useReveal()
   const audienceReveal = useReveal()
-  const processReveal = useReveal()
   const packagesReveal = useReveal()
 
   return (
@@ -364,46 +356,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════
-          PROCESS — numbered editorial row
-      ════════════════════════════════════════════════════════════════ */}
-      <section
-        className={`section process reveal-section${processReveal.visible ? " is-visible" : ""}`}
-        ref={processReveal.ref as React.RefObject<HTMLElement>}
-      >
-        <div className="container">
-          <div className="process-header reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
-            <Eyebrow>YOUR JOURNEY STARTS HERE</Eyebrow>
-            <h2>From First Message
-            to Memorable Experience.</h2>
-          </div>
-          <div className="process-list">
-            {steps.map(([number, title, copy], i) => (
-              <div
-                key={title}
-                className="process-item reveal-item"
-                style={{ "--delay": `${i * 90}ms` } as React.CSSProperties}
-              >
-                <span className="process-item__num" aria-hidden="true">{number}</span>
-                <div className="process-item__body">
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="process-action reveal-item" style={{ "--delay": "400ms" } as React.CSSProperties}>
-            <WhatsAppLink className="button button--primary">
-              Start Planning Today <ArrowRight size={16} />
-            </WhatsAppLink>
-            <p className="process-action__note">No commitment required. We discuss options first.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          PACKAGES — asymmetric 2×2 image gallery
-      ════════════════════════════════════════════════════════════════ */}
       {/* ════════════════════════════════════════════════════════════════
           TOUR PACKAGES
       ════════════════════════════════════════════════════════════════ */}
