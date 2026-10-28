@@ -428,27 +428,58 @@ export function Home() {
       {/* ════════════════════════════════════════════════════════════════
           PACKAGES — asymmetric 2×2 image gallery
       ════════════════════════════════════════════════════════════════ */}
+      {/* ════════════════════════════════════════════════════════════════
+          TOUR PACKAGES
+      ════════════════════════════════════════════════════════════════ */}
       <section
-        className={`packages reveal-section${packagesReveal.visible ? " is-visible" : ""}`}
+        className={`tour-packages reveal-section${packagesReveal.visible ? " is-visible" : ""}`}
         ref={packagesReveal.ref as React.RefObject<HTMLElement>}
       >
-        <div className="container packages__head reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
-          <Eyebrow>EXPLORE THE POSSIBILITIES</Eyebrow>
-          <h2>Choose Your<br />Experience.</h2>
-          <p>Tailored for schools, families, churches, and organisations — tell us your idea and we'll plan it around you.</p>
-        </div>
-        <div className="container packages__grid">
-          {experienceCategories.map((item, i) => (
-            <PackageCard key={item.title} item={item} index={i} visible={packagesReveal.visible} />
-          ))}
-        </div>
         <div className="container">
-          <p className="package-note">
-            Pricing and dates are confirmed after discussing your requirements.
-            <WhatsAppLink message="Hello Tarek Logistics Limited, I would like to discuss an experience." className="package-note__link">
-              Enquire about any category <ArrowRight size={12} />
-            </WhatsAppLink>
-          </p>
+          <div className="tp-head reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
+            <Eyebrow>EXPLORE THE POSSIBILITIES</Eyebrow>
+            <h2 className="tp-head__title">Tour Packages</h2>
+            <p className="tp-head__sub">
+              Carefully curated tours across Nigeria — from city day trips to
+              faith-based journeys. Contact us to plan your experience.
+            </p>
+          </div>
+          <div className="tp-list">
+            {[
+              { title: "Aba Day Trip", desc: "A guided day tour exploring the commercial heart of Abia State." },
+              { title: "Bonny City Tour", desc: "Discover the history and culture of Bonny Island, Rivers State." },
+              { title: "Port Harcourt City Tour", desc: "A curated tour of the Garden City — landmarks, culture, and cuisine." },
+              { title: "Guided Tour of the Finger of God Cathedral", desc: "A meaningful visit to one of Nigeria's most iconic religious landmarks." },
+              { title: "Shiloh Tour Packages", desc: "Faith-inspired group journeys planned around the Shiloh experience." },
+              { title: "Glory Reign Tour Packages", desc: "Coordinated travel and logistics for Glory Reign pilgrims and groups." },
+            ].map((pkg, i) => (
+              <a
+                key={pkg.title}
+                className="tp-item reveal-item"
+                href={whatsappUrl(`Hello Tarek Logistics Limited, I would like to enquire about the ${pkg.title}.`)}
+                target="_blank"
+                rel="noreferrer"
+                style={{ "--delay": `${i * 70}ms` } as React.CSSProperties}
+              >
+                <span className="tp-item__num" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="tp-item__body">
+                  <span className="tp-item__title">{pkg.title}</span>
+                  <span className="tp-item__desc">{pkg.desc}</span>
+                </div>
+                <span className="tp-item__cta">
+                  Enquire <ArrowRight size={15} />
+                </span>
+              </a>
+            ))}
+          </div>
+          <div className="tp-footer reveal-item" style={{ "--delay": "450ms" } as React.CSSProperties}>
+            <p>Pricing, dates, and group arrangements are confirmed after your initial enquiry.</p>
+            <Link className="button button--primary" to="/contact">
+              Plan a Custom Experience <ArrowRight size={15} />
+            </Link>
+          </div>
         </div>
       </section>
 
