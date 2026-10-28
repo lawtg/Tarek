@@ -357,7 +357,7 @@ export function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          TOUR PACKAGES
+          TOUR PACKAGES — card grid
       ════════════════════════════════════════════════════════════════ */}
       <section
         className={`tour-packages reveal-section${packagesReveal.visible ? " is-visible" : ""}`}
@@ -372,38 +372,78 @@ export function Home() {
               faith-based journeys. Contact us to plan your experience.
             </p>
           </div>
-          <div className="tp-list">
+          <div className="tp-cards">
             {[
-              { title: "Aba Day Trip", desc: "A guided day tour exploring the commercial heart of Abia State." },
-              { title: "Bonny City Tour", desc: "Discover the history and culture of Bonny Island, Rivers State." },
-              { title: "Port Harcourt City Tour", desc: "A curated tour of the Garden City — landmarks, culture, and cuisine." },
-              { title: "Guided Tour of the Finger of God Cathedral", desc: "A meaningful visit to one of Nigeria's most iconic religious landmarks." },
-              { title: "Shiloh Tour Packages", desc: "Faith-inspired group journeys planned around the Shiloh experience." },
-              { title: "Glory Reign Tour Packages", desc: "Coordinated travel and logistics for Glory Reign pilgrims and groups." },
+              {
+                title: "Aba Day Trip",
+                location: "Abia State, Nigeria",
+                desc: "A guided day tour exploring the commercial and cultural heart of Aba.",
+                img: "https://images.unsplash.com/photo-1509803874385-db7a23652753?auto=format&fit=crop&w=800&q=80",
+                imgAlt: "Busy African city market street",
+              },
+              {
+                title: "Bonny City Tour",
+                location: "Rivers State, Nigeria",
+                desc: "Discover the rich history, waterways, and heritage of Bonny Island.",
+                img: "https://images.unsplash.com/photo-1596395463854-e6a7ff2b5b8d?auto=format&fit=crop&w=800&q=80",
+                imgAlt: "Tropical island waterfront",
+              },
+              {
+                title: "Port Harcourt City Tour",
+                location: "Rivers State, Nigeria",
+                desc: "A curated tour of the Garden City — landmarks, culture, and cuisine.",
+                img: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80",
+                imgAlt: "City skyline and urban landscape",
+              },
+              {
+                title: "Finger of God Cathedral",
+                location: "Nigeria",
+                desc: "A meaningful guided visit to one of Nigeria's most iconic religious landmarks.",
+                img: "https://images.unsplash.com/photo-1543423924-b9f161af87e4?auto=format&fit=crop&w=800&q=80",
+                imgAlt: "Cathedral architecture with dramatic lighting",
+              },
+              {
+                title: "Shiloh Tour Packages",
+                location: "Nigeria",
+                desc: "Faith-inspired group journeys coordinated around the Shiloh experience.",
+                img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=80",
+                imgAlt: "Large group gathering at a faith event",
+              },
+              {
+                title: "Glory Reign Tour Packages",
+                location: "Nigeria",
+                desc: "Coordinated travel and logistics for Glory Reign pilgrims and groups.",
+                img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80",
+                imgAlt: "Group of travellers on a journey",
+              },
             ].map((pkg, i) => (
               <a
                 key={pkg.title}
-                className="tp-item reveal-item"
+                className="tp-card reveal-item"
                 href={whatsappUrl(`Hello Tarek Logistics Limited, I would like to enquire about the ${pkg.title}.`)}
                 target="_blank"
                 rel="noreferrer"
-                style={{ "--delay": `${i * 70}ms` } as React.CSSProperties}
+                style={{ "--delay": `${i * 80}ms` } as React.CSSProperties}
               >
-                <span className="tp-item__num" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="tp-item__body">
-                  <span className="tp-item__title">{pkg.title}</span>
-                  <span className="tp-item__desc">{pkg.desc}</span>
+                <div className="tp-card__img">
+                  <img src={pkg.img} alt={pkg.imgAlt} loading="lazy" />
                 </div>
-                <span className="tp-item__cta">
-                  Enquire <ArrowRight size={15} />
-                </span>
+                <div className="tp-card__body">
+                  <p className="tp-card__location">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {pkg.location}
+                  </p>
+                  <h3 className="tp-card__title">{pkg.title}</h3>
+                  <p className="tp-card__desc">{pkg.desc}</p>
+                  <span className="tp-card__cta">
+                    Enquire Now <ArrowRight size={14} />
+                  </span>
+                </div>
               </a>
             ))}
           </div>
-          <div className="tp-footer reveal-item" style={{ "--delay": "450ms" } as React.CSSProperties}>
-            <p>Pricing, dates, and group arrangements are confirmed after your initial enquiry.</p>
+          <div className="tp-footer reveal-item" style={{ "--delay": "500ms" } as React.CSSProperties}>
+            <p>Pricing and dates are confirmed after your initial enquiry. No commitment required.</p>
             <Link className="button button--primary" to="/contact">
               Plan a Custom Experience <ArrowRight size={15} />
             </Link>
