@@ -132,7 +132,6 @@ export function Home() {
   const audienceReveal = useReveal()
   const processReveal = useReveal()
   const packagesReveal = useReveal()
-  const philosophyReveal = useReveal(0.2)
 
   return (
     <>
@@ -192,29 +191,6 @@ export function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 02 — BRAND PHILOSOPHY (quiet editorial pause)
-      ════════════════════════════════════════════════════════════════ */}
-      <section
-        className={`philosophy reveal-section${philosophyReveal.visible ? " is-visible" : ""}`}
-        ref={philosophyReveal.ref as React.RefObject<HTMLElement>}
-      >
-        <div className="philosophy__inner">
-          <p className="philosophy__eyebrow reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
-            <span aria-hidden="true" />The Tarek Philosophy
-          </p>
-          <h2 className="reveal-item" style={{ "--delay": "80ms" } as React.CSSProperties}>
-            The Difference Is<br /><em>in the Details.</em>
-          </h2>
-          <p className="philosophy__body reveal-item" style={{ "--delay": "160ms" } as React.CSSProperties}>
-            From thoughtfully planned educational journeys to unforgettable group
-            experiences — great experiences are made of a thousand small decisions,
-            each one made with care.
-          </p>
-          <div className="philosophy__rule reveal-item" style={{ "--delay": "240ms" } as React.CSSProperties} />
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
           SECTION 03 — WHAT WE CREATE (services card grid)
       ════════════════════════════════════════════════════════════════ */}
       <section
@@ -252,16 +228,7 @@ export function Home() {
         ref={aboutReveal.ref as React.RefObject<HTMLElement>}
       >
         <div className="container about-grid">
-          <div className="about-image reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
-            <div className="about-image__frame">
-              <img src={images.about} alt="Thoughtful planning in action" loading="lazy" />
-            </div>
-            <div className="about-image__tag">
-              <span>Excellent &amp; Exceptional</span>
-              <strong>Service.</strong>
-            </div>
-          </div>
-          <div className="about-copy reveal-item" style={{ "--delay": "200ms" } as React.CSSProperties}>
+          <div className="about-copy reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
             <Eyebrow>THE TAREK STORY</Eyebrow>
             <h2>Travel &amp; Events,
             Planned Right.</h2>
@@ -281,6 +248,15 @@ export function Home() {
             <Link className="text-link" to="/about">
               Discover Our Story <ArrowRight size={16} />
             </Link>
+          </div>
+          <div className="about-image reveal-item" style={{ "--delay": "150ms" } as React.CSSProperties}>
+            <div className="about-image__frame">
+              <img src={images.about} alt="Thoughtful planning in action" loading="lazy" />
+            </div>
+            <div className="about-image__tag">
+              <span>Excellent &amp; Exceptional</span>
+              <strong>Service.</strong>
+            </div>
           </div>
         </div>
       </section>

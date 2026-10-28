@@ -3,7 +3,7 @@
 
 @theme {
   --color-navy: #071B30;
-  --color-navy-deep: #041321;
+  --color-navy-deep: #0741a2;
   --color-blue: #0741a2;
   --color-blue-dark: #05318a;
   --color-blue-light: #E8EFFA;
@@ -34,7 +34,7 @@
 /* ── TOKENS ──────────────────────────────────────────────────────────────── */
 :root {
   --navy: #071B30;
-  --navy-deep: #041321;
+  --navy-deep: #0741a2;
   --blue: #0741a2;
   --blue-dark: #05318a;
   --blue-light: #E8EFFA;
@@ -65,8 +65,8 @@
   .header-phone { display: none; }
   .header-right { gap: 0; }
 }
-.section { padding: 120px 0; }
-.section--sm { padding: 80px 0; }
+.section { padding: 96px 0; }
+.section--sm { padding: 64px 0; }
 
 /* ── SCROLL REVEAL ───────────────────────────────────────────────────────── */
 /*
@@ -321,21 +321,21 @@
   background:
     /* strong bottom-left vignette for copy legibility */
     linear-gradient(115deg,
-      rgba(4,19,33,.92) 0%,
+      rgba(7,65,162,.92) 0%,
       rgba(4,19,33,.7) 35%,
-      rgba(4,19,33,.25) 65%,
+      rgba(7,65,162,.25) 65%,
       rgba(4,19,33,.08) 100%
     ),
     /* bottom anchor — text area is always readable */
     linear-gradient(to top,
-      rgba(4,19,33,.9) 0%,
+      rgba(7,65,162,.9) 0%,
       rgba(4,19,33,.5) 28%,
-      rgba(4,19,33,.0) 60%
+      rgba(7,65,162,.0) 60%
     ),
     /* subtle top tint */
     linear-gradient(to bottom,
       rgba(4,19,33,.3) 0%,
-      rgba(4,19,33,.0) 18%
+      rgba(7,65,162,.0) 18%
     );
 }
 
@@ -629,10 +629,10 @@
   .hero__overlay {
     background:
       linear-gradient(to bottom,
-        rgba(4,19,33,.55) 0%,
-        rgba(4,19,33,.25) 30%,
-        rgba(4,19,33,.65) 65%,
-        rgba(4,19,33,.92) 100%
+        rgba(7,65,162,.55) 0%,
+        rgba(7,65,162,.25) 30%,
+        rgba(7,65,162,.65) 65%,
+        rgba(7,65,162,.92) 100%
       );
   }
 }
@@ -654,64 +654,7 @@
 
 
 
-/* ─────────────────────────────────────────────────────────────────────────
-   SECTION 02 — BRAND PHILOSOPHY
-───────────────────────────────────────────────────────────────────────── */
-.philosophy {
-  background: var(--white);
-  padding: 120px 0 110px;
-  border-bottom: 1px solid var(--border);
-}
-.philosophy__inner {
-  width: var(--container-narrow);
-  margin-inline: auto;
-  text-align: center;
-}
-/* Custom eyebrow — smaller, lettertracked, centered */
-.philosophy__eyebrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  color: var(--blue);
-  font-family: "Manrope", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-.philosophy__eyebrow span {
-  display: inline-block;
-  width: 24px;
-  height: 1px;
-  background: var(--blue);
-}
-.philosophy h2 {
-  font-size: clamp(46px, 6vw, 82px);
-  color: var(--navy);
-  line-height: .93;
-  letter-spacing: -.025em;
-  margin-bottom: 36px;
-}
-.philosophy h2 em {
-  color: var(--champagne);
-  font-style: italic;
-}
-.philosophy__body {
-  color: var(--slate);
-  font-size: 18px;
-  line-height: 1.8;
-  max-width: 560px;
-  margin-inline: auto;
-  font-weight: 400;
-}
-.philosophy__rule {
-  width: 36px;
-  height: 1px;
-  background: var(--blue);
-  margin: 52px auto 0;
-}
+
 
 /* ─────────────────────────────────────────────────────────────────────────
    PLANNING STRIP — overlaps hero bottom, white background
@@ -720,7 +663,7 @@
    SECTION 03 — SERVICES (card grid — reference-inspired)
 ───────────────────────────────────────────────────────────────────────── */
 .services-section {
-  background: var(--ivory);
+  background: var(--white);
   padding: 100px 0 88px;
   scroll-margin-top: 76px;
 }
@@ -752,8 +695,8 @@
 
 /* base card */
 .svc-card {
-  background: var(--white);
-  border-radius: 12px;
+  background: var(--ivory);
+  border-radius: 10px;
   padding: 36px 32px 32px;
   text-decoration: none;
   color: var(--navy);
@@ -915,7 +858,9 @@
   gap: 80px;
   align-items: center;
   padding: 100px 0 112px;
+  direction: rtl; /* swap columns visually */
 }
+.about-grid > * { direction: ltr; } /* restore reading direction inside */
 .about-image { position: relative; }
 .about-image__frame {
   overflow: hidden;
@@ -1121,9 +1066,9 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(4,19,33,.18) 0%,
-    rgba(4,19,33,.45) 50%,
-    rgba(4,19,33,.82) 100%
+    rgba(7,65,162,.18) 0%,
+    rgba(7,65,162,.45) 50%,
+    rgba(7,65,162,.82) 100%
   );
 }
 
@@ -1305,6 +1250,17 @@
   grid-template-columns: repeat(4, 1fr);
   border-top: 2px solid var(--blue);
   position: relative;
+}
+/* dashed connector line between step numbers */
+.process-list::after {
+  content: "";
+  position: absolute;
+  top: 32px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  border-top: 1px dashed var(--border);
+  pointer-events: none;
 }
 .process-item {
   padding: 40px 32px 40px 0;
@@ -1516,8 +1472,8 @@
   inset: 0;
   background:
     linear-gradient(100deg,
-      rgba(4,19,33,.92) 0%,
-      rgba(4,19,33,.65) 45%,
+      rgba(7,65,162,.92) 0%,
+      rgba(7,65,162,.65) 45%,
       rgba(4,19,33,.2) 100%
     );
 }
@@ -1585,7 +1541,7 @@
 /* ─────────────────────────────────────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────────────────────────────────────── */
-.site-footer { background: var(--navy-deep); color: rgba(255,255,255,.5); padding: 80px 0 28px; }
+.site-footer { background: #071B30; color: rgba(255,255,255,.5); padding: 80px 0 28px; }
 .footer-grid { display: grid; grid-template-columns: 2fr .7fr 1fr 1.1fr; gap: 60px; }
 .footer-brand p { max-width: 380px; font-size: 12px; line-height: 1.85; margin: 16px 0 16px; }
 .footer-brand > strong { color: rgba(255,255,255,.65); font-family: "Instrument Serif", serif; font-weight: 400; font-size: 17px; }
@@ -1605,7 +1561,7 @@
 .page-hero--image { min-height: 540px; color: white; }
 .page-hero--image::after { display: none; }
 .page-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.page-hero--image::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(4,19,33,.88), rgba(4,19,33,.38)); }
+.page-hero--image::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(7,65,162,.88), rgba(7,65,162,.38)); }
 .page-hero__content { position: relative; z-index: 2; }
 .page-hero h1 { max-width: 860px; font-size: clamp(44px, 6vw, 78px); line-height: .97; }
 .page-hero:not(.page-hero--image) h1 { color: var(--navy); }
@@ -1761,8 +1717,8 @@
   .mobile-menu.is-open nav > a:not(.button) { opacity: 1; transform: translateX(0); }
   .mobile-menu nav > a:not(.button):hover { color: var(--champagne); }
   .mobile-menu .button { margin: 20px 0; }
-  .philosophy { padding: 100px 0; }
-  .philosophy h2 { font-size: clamp(38px, 8vw, 58px); }
+
+
 
   .about-grid { grid-template-columns: 1fr; gap: 56px; padding: 80px 0; }
   .about-image__frame img { height: 460px; }
@@ -1790,7 +1746,7 @@
   .services-list article > a { grid-column: 3; }
   .empty-info { grid-template-columns: 1fr; }
   .promise { min-height: 580px; }
-  .mobile-contact-bar { position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; height: 56px; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 -6px 24px rgba(4,19,33,.12); }
+  .mobile-contact-bar { position: fixed; z-index: 60; left: 0; right: 0; bottom: 0; height: 56px; display: grid; grid-template-columns: 1fr 1fr; box-shadow: 0 -6px 24px rgba(7,65,162,.12); }
   .mobile-contact-bar a { display: flex; align-items: center; justify-content: center; gap: 8px; background: white; color: var(--navy); text-decoration: none; font-size: 12px; font-weight: 800; }
   .mobile-contact-bar a:last-child { color: white; background: var(--blue); font-weight: 800; }
   .mobile-whatsapp-btn { color: white; background: var(--blue); display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 12px; font-weight: 800; }
@@ -1805,8 +1761,8 @@
   :root { --container: calc(100% - 40px); }
   .site-header { height: 64px; }
   .logo-img { height: 48px; }
-  .philosophy { padding: 80px 0; }
-  .philosophy h2 { font-size: clamp(34px, 10vw, 48px); }
+
+
   .about-image__frame img { height: 360px; border-radius: 3px 50px 3px 3px; }
   .about-image__tag { display: none; }
 
