@@ -98,21 +98,25 @@ export function Home() {
       num: "01",
       title: "Thoughtful Planning",
       desc: "We go beyond logistics. Every detail is considered, every arrangement discussed, and every commitment kept.",
+      image: images.about,
     },
     {
       num: "02",
       title: "Personalised Attention",
       desc: "We take time to understand your requirements, discuss what matters to you, and tailor arrangements accordingly.",
+      image: images.group,
     },
     {
       num: "03",
       title: "Seamless Coordination",
       desc: "From first inquiry to delivery, our coordination is precise, proactive, and professionally communicated.",
+      image: images.events,
     },
     {
       num: "04",
       title: "Experiences Worth Remembering",
       desc: "We are committed to positive experiences that stay with people long after the journey ends.",
+      image: images.pilgrimage,
     },
   ]
 
@@ -282,60 +286,64 @@ export function Home() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 05 — THE TAREK DIFFERENCE (sticky interactive)
+          SECTION 05 — THE TAREK DIFFERENCE
       ════════════════════════════════════════════════════════════════ */}
-      <section className="section difference">
-        <div className="container">
-          <div className="difference__header">
+      <section className="diff-section">
+        {/* Left — text panel */}
+        <div className="diff-left">
+          <div className="diff-left__inner">
             <Eyebrow>THE TAREK DIFFERENCE</Eyebrow>
-            <h2>What Sets Us Apart.</h2>
+            <h2 className="diff-heading">What Sets<br />Us Apart.</h2>
+            <div className="diff-list">
+              {differenceItems.map((item, i) => (
+                <button
+                  key={item.title}
+                  className={`diff-item${activeValue === i ? " is-active" : ""}`}
+                  onClick={() => setActiveValue(i)}
+                  onMouseEnter={() => setActiveValue(i)}
+                  aria-pressed={activeValue === i}
+                >
+                  <span className="diff-item__num">{item.num}</span>
+                  <div className="diff-item__text">
+                    <span className="diff-item__title">{item.title}</span>
+                    <span className="diff-item__desc">{item.desc}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="container difference__inner">
-          <div className="difference__nav">
-            {differenceItems.map((item, i) => (
-              <div
-                key={item.title}
-                className={`difference__nav-item${activeValue === i ? " is-active" : ""}`}
-                onClick={() => setActiveValue(i)}
-                onMouseEnter={() => setActiveValue(i)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === "Enter" && setActiveValue(i)}
-                aria-pressed={activeValue === i}
-              >
-                <span className="difference__num">{item.num}</span>
-                <div className="difference__nav-text">
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="difference__visual" aria-hidden="true">
-            <div className="difference__visual-inner">
-              {differenceItems.map((item, i) => (
-                <div key={item.title} className={`difference__slide${activeValue === i ? " is-active" : ""}`}>
-                  <div className="difference__slide-bg">
-                    <span>{item.num}</span>
-                  </div>
-                  <div className="difference__slide-label">
-                    <span>{item.num} — THE TAREK DIFFERENCE</span>
-                    <strong>{item.title}</strong>
-                  </div>
-                </div>
-              ))}
-              <div className="difference__progress">
-                {differenceItems.map((item, i) => (
-                  <button
-                    key={item.title}
-                    className={`difference__progress-dot${activeValue === i ? " is-active" : ""}`}
-                    onClick={() => setActiveValue(i)}
-                    aria-label={`Show: ${item.title}`}
-                  />
-                ))}
-              </div>
+
+        {/* Right — photo panel */}
+        <div className="diff-right" aria-hidden="true">
+          {differenceItems.map((item, i) => (
+            <div
+              key={item.title}
+              className={`diff-photo${activeValue === i ? " is-active" : ""}`}
+            >
+              <img src={item.image} alt="" loading="lazy" />
+              <div className="diff-photo__overlay" />
             </div>
+          ))}
+          {/* floating label */}
+          <div className="diff-caption">
+            <span className="diff-caption__eyebrow">
+              {differenceItems[activeValue].num} — THE TAREK DIFFERENCE
+            </span>
+            <strong className="diff-caption__title">
+              {differenceItems[activeValue].title}
+            </strong>
+          </div>
+          {/* progress dots */}
+          <div className="diff-dots">
+            {differenceItems.map((item, i) => (
+              <button
+                key={item.title}
+                className={`diff-dot${activeValue === i ? " is-active" : ""}`}
+                onClick={() => setActiveValue(i)}
+                aria-label={item.title}
+              />
+            ))}
           </div>
         </div>
       </section>
