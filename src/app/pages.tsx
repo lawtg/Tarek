@@ -128,56 +128,62 @@ export function Home() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 01 — CINEMATIC HERO
+          SECTION 01 — HERO (two-column split)
       ════════════════════════════════════════════════════════════════ */}
       <section className="hero">
-        <div className="hero__bg" aria-hidden="true">
-          <img
-            src={images.hero}
-            alt=""
-            fetchPriority="high"
-            decoding="async"
-          />
-        </div>
-        <div className="hero__overlay" aria-hidden="true" />
-
-        {/* Scroll indicator — fixed bottom-right, independent of content */}
-        <div className="hero__scroll-indicator" aria-hidden="true">
-          <span className="hero__scroll-label">Scroll</span>
-          <span className="hero__scroll-line" />
-        </div>
-
-        <div className="hero__content">
-          <div className="hero__inner">
-            <div className="hero__copy">
-              <p className="hero__eyebrow">
-                <span className="hero__eyebrow-rule" aria-hidden="true" />
-                TRAVEL · LOGISTICS · EVENTS
-              </p>
-              <h1 aria-label="Every Journey Deserves to Be Extraordinary.">
-                <span className="hero__h1-line hero__h1-line--1">Every Journey</span>
-                <span className="hero__h1-line hero__h1-line--2">Deserves to Be</span>
-                <span className="hero__h1-line hero__h1-line--3"><em>Extraordinary.</em></span>
-              </h1>
-              <p className="hero__sub">
-                We plan travel, educational tours, pilgrimages, protocol, events,
-                and logistics — so your group can focus entirely on the experience.
-              </p>
-              <div className="hero__actions">
-                <WhatsAppLink
-                  message="Hello Tarek Logistics Limited, I would like to plan an experience."
-                  className="button hero__btn hero__btn--primary"
-                >
-                  Start Planning — It's Free
-                  <span className="hero__btn-arrow" aria-hidden="true">
-                    <ArrowRight size={16} />
-                  </span>
-                </WhatsAppLink>
-                <a className="button hero__btn hero__btn--secondary" href="#services">
-                  Explore Our Experiences
-                </a>
-              </div>
+        {/* LEFT — content */}
+        <div className="hero__left">
+          <div className="hero__left-inner">
+            <p className="hero__eyebrow">
+              <span className="hero__eyebrow-rule" aria-hidden="true" />
+              TRAVEL · LOGISTICS · EVENTS
+            </p>
+            <h1>
+              Every Journey<br />
+              Deserves to Be<br />
+              <em>Extraordinary.</em>
+            </h1>
+            <p className="hero__sub">
+              We plan travel, educational tours, pilgrimages, protocol, events,
+              and logistics — so your group can focus entirely on the experience.
+            </p>
+            <div className="hero__actions">
+              <WhatsAppLink
+                message="Hello Tarek Logistics Limited, I would like to plan an experience."
+                className="hero__btn hero__btn--primary"
+              >
+                Start Planning — It's Free
+                <ArrowRight size={16} />
+              </WhatsAppLink>
+              <a className="hero__btn hero__btn--secondary" href="#services">
+                Explore Our Experiences
+              </a>
             </div>
+            {/* trust strip */}
+            <div className="hero__trust">
+              <span>✓ No commitment required</span>
+              <span className="hero__trust-dot" />
+              <span>✓ Fast response</span>
+              <span className="hero__trust-dot" />
+              <span>✓ Tailored to your group</span>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT — image */}
+        <div className="hero__right" aria-hidden="true">
+          <div className="hero__img-frame">
+            <img
+              src={images.hero}
+              alt="Travel planning experience"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </div>
+          {/* floating badge */}
+          <div className="hero__badge">
+            <strong>Est. 2020</strong>
+            <span>Tarek Travels & Logistics</span>
           </div>
         </div>
       </section>
