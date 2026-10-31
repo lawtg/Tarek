@@ -192,12 +192,14 @@ export function Home() {
       >
         <div className="container">
           <div className="svc-head reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
-            <Eyebrow>WHAT WE PLAN FOR YOU</Eyebrow>
-            <h2 className="svc-head__title">Our Services</h2>
-            <p className="svc-head__sub">
-              From educational tours to corporate protocol — every experience
-              thoughtfully coordinated from first enquiry to final delivery.
-            </p>
+            <div className="svc-head__text">
+              <Eyebrow>WHAT WE PLAN FOR YOU</Eyebrow>
+              <h2 className="svc-head__title">Our Services</h2>
+              <p className="svc-head__sub">
+                From educational tours to corporate protocol — every experience
+                thoughtfully coordinated from first enquiry to final delivery.
+              </p>
+            </div>
           </div>
           <div className="svc-grid">
             {services.slice(0, 6).map((service, i) => (
@@ -365,12 +367,14 @@ export function Home() {
       >
         <div className="container">
           <div className="tp-head reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
-            <Eyebrow>EXPLORE THE POSSIBILITIES</Eyebrow>
-            <h2 className="tp-head__title">Tour Packages</h2>
-            <p className="tp-head__sub">
-              Carefully curated tours across Nigeria — from city day trips to
-              faith-based journeys. Contact us to plan your experience.
-            </p>
+            <div className="tp-head__text">
+              <Eyebrow>EXPLORE THE POSSIBILITIES</Eyebrow>
+              <h2 className="tp-head__title">Tour Packages</h2>
+              <p className="tp-head__sub">
+                Carefully curated tours across Nigeria — from city day trips to
+                faith-based journeys. Contact us to plan your experience.
+              </p>
+            </div>
           </div>
           <div className="tp-cards">
             {[
