@@ -134,7 +134,7 @@
    HEADER
 ══════════════════════════════════════════════════════════════════════════ */
 .site-header {
-  height: 84px;
+  height: 96px;
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 200;
@@ -157,26 +157,27 @@
   align-items: center;
   text-decoration: none;
   flex: none;
-  margin-right: 48px;
-  /* Remove any background artefact */
-  background: none !important;
-  padding: 0;
+  margin-right: 40px;
+  padding: 6px 0;
   transition: opacity .2s;
 }
 .logo:hover { opacity: .8; }
 .logo-img {
-  height: 56px;
-  width: auto;
+  /* Width-based so portrait logo renders at correct proportions */
+  /* 471×529 ratio → 160px wide = ~180px tall — clearly visible, not cramped */
+  width: 160px;
+  height: auto;
   display: block;
-  /* multiply removes logo.jpeg grey background cleanly on white */
-  mix-blend-mode: multiply;
   object-fit: contain;
+  /* No mix-blend-mode — new logo has clean white background */
   transition: transform .28s var(--ease-out);
 }
 .logo:hover .logo-img { transform: scale(1.02); }
+/* Footer version — white bg logo on dark footer */
 .logo--light .logo-img {
-  mix-blend-mode: normal;
-  filter: brightness(0) invert(1);
+  /* Logo has white bg; on dark footer show as-is or invert if preferred */
+  /* Keeping as-is since the white circle reads well on dark navy */
+  opacity: .95;
 }
 
 /* ── Desktop nav ── */
@@ -219,7 +220,7 @@
   align-items: center;
   gap: 16px;
   flex: none;
-  margin-left: 48px;
+  margin-left: 32px;
 }
 .header-phone {
   display: inline-flex;
@@ -347,7 +348,7 @@
 ══════════════════════════════════════════════════════════════════════════ */
 .hero {
   background: #f9fafc;           /* match image background */
-  padding-top: 84px;             /* clears fixed header */
+  padding-top: 96px;             /* clears fixed header */
   min-height: calc(100svh - 84px);
   max-height: 920px;
   display: grid;
@@ -675,7 +676,7 @@
     grid-template-rows: auto auto;
     max-height: none;
     min-height: auto;
-    padding-top: 84px;
+    padding-top: 96px;
   }
   /* IMAGE FIRST on mobile — swap order */
   .hero__right {
@@ -727,7 +728,7 @@
 .services-section {
   background: var(--white);
   padding: 96px 0 80px;
-  scroll-margin-top: 84px;
+  scroll-margin-top: 96px;
 }
 .svc-head {
   display: flex;
@@ -1051,8 +1052,8 @@
 
 .diff-right {
   position: sticky;
-  top: 84px;
-  height: calc(100vh - 84px);
+  top: 96px;
+  height: calc(100vh - 96px);
   overflow: hidden;
   background: var(--blue-dark);
 }
@@ -1130,7 +1131,7 @@
   gap: 72px;
   align-items: start;
 }
-.audience__head { position: sticky; top: 96px; padding-bottom: 16px; }
+.audience__head { position: sticky; top: 108px; padding-bottom: 16px; }
 .audience__eyebrow {
   display: flex;
   align-items: center;
@@ -1408,7 +1409,7 @@
   gap: 80px;
   align-items: start;
 }
-.faq-grid > div:first-child { position: sticky; top: 96px; }
+.faq-grid > div:first-child { position: sticky; top: 108px; }
 .faq-grid > div:first-child h2 { color: var(--text-primary); font-size: clamp(32px, 3.5vw, 48px); line-height: 1.08; margin: 14px 0 16px; }
 .faq-grid > div:first-child > p { color: var(--text-muted); font-size: 14px; line-height: 1.75; }
 .faq-phone { margin-top: 24px; display: inline-flex; align-items: center; gap: 7px; }
@@ -1464,6 +1465,8 @@
 .footer-grid { display: grid; grid-template-columns: 2fr .65fr 1fr 1.1fr; gap: 52px; }
 .footer-brand p { max-width: 360px; font-size: 12px; line-height: 1.8; margin: 18px 0 14px; }
 .footer-brand > strong { color: rgba(255,255,255,.65); font-family: "Instrument Serif", serif; font-weight: 400; font-size: 17px; }
+/* Footer logo — slightly smaller than header, preserves aspect ratio */
+.footer-brand .logo-img { width: 130px; height: auto; }
 .site-footer h3 { color: white; font-family: "Manrope", sans-serif; font-size: 10px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 18px; }
 .site-footer > .footer-grid > div:not(.footer-brand) { display: flex; flex-direction: column; align-items: flex-start; }
 .site-footer a { color: rgba(255,255,255,.45); text-decoration: none; font-size: 12px; line-height: 1.4; margin-bottom: 11px; display: inline-flex; align-items: center; gap: 7px; transition: color .2s; }
@@ -1567,7 +1570,7 @@
   display: flex; align-items: center;
   background: var(--ivory);
   position: relative; overflow: hidden;
-  padding-top: 84px;
+  padding-top: 96px;
 }
 .page-hero::after {
   content: "";
@@ -1707,9 +1710,9 @@
 ══════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 560px) {
   :root { --container: calc(100% - 40px); }
-  .site-header { height: 64px; }
-  main { padding-top: 64px !important; }
-  .logo-img { height: 46px; }
+  .site-header { height: 72px; }
+  main { padding-top: 72px !important; }
+  .logo-img { width: 120px; height: auto; }
   .form-grid { grid-template-columns: 1fr; }
   .contact-form { padding: 26px 18px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }

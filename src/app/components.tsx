@@ -197,7 +197,7 @@ export function Layout() {
   return (
     <>
       <Header />
-      <main style={{ paddingTop: "84px" }}>
+      <main style={{ paddingTop: "96px" }}>
         <Outlet />
       </main>
       <Footer />
