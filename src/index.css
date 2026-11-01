@@ -869,15 +869,15 @@
    ABOUT / TAREK STORY
 ══════════════════════════════════════════════════════════════════════════ */
 .about-split {
-  background: var(--ivory);
-  border-top: 1px solid var(--border);
+  background: #ffffff;
+  /* Clean white — sits directly after hero, no border needed */
 }
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 72px;
   align-items: center;
-  padding: 96px 0 104px;
+  padding: 112px 0 112px;
   direction: rtl;
 }
 .about-grid > * { direction: ltr; }
@@ -946,7 +946,7 @@
 
 /* responsive */
 @media (max-width: 820px) {
-  .about-grid { grid-template-columns: 1fr; gap: 48px; padding: 72px 0; direction: ltr; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; padding: 80px 0; direction: ltr; }
   .about-image__frame img { height: 420px; }
 }
 @media (max-width: 560px) {

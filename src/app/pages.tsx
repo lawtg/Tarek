@@ -191,39 +191,7 @@ Continue           SECTION 01 — HERO (editorial travel composition)
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 03 — WHAT WE CREATE (services card grid)
-      ════════════════════════════════════════════════════════════════ */}
-      <section
-        className={`services-section reveal-section${servicesReveal.visible ? " is-visible" : ""}`}
-        id="services"
-        ref={servicesReveal.ref as React.RefObject<HTMLElement>}
-      >
-        <div className="container">
-          <div className="svc-head reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
-            <div className="svc-head__text">
-              <Eyebrow>WHAT WE PLAN FOR YOU</Eyebrow>
-              <h2 className="svc-head__title">Our Services</h2>
-              <p className="svc-head__sub">
-                From educational tours to corporate protocol — every experience
-                thoughtfully coordinated from first enquiry to final delivery.
-              </p>
-            </div>
-          </div>
-          <div className="svc-grid">
-            {services.slice(0, 6).map((service, i) => (
-              <ServiceCard key={service.slug} service={service} index={i} visible={servicesReveal.visible} />
-            ))}
-          </div>
-          <div className="svc-more reveal-item" style={{ "--delay": "600ms" } as React.CSSProperties}>
-            <Link className="svc-more__all" to="/services">
-              View all services <ArrowRight size={14} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          SECTION 04 — THE TAREK STORY (editorial split)
+          SECTION 02 — THE TAREK STORY (immediately after hero)
       ════════════════════════════════════════════════════════════════ */}
       <section
         className={`section about-split reveal-section${aboutReveal.visible ? " is-visible" : ""}`}
@@ -259,6 +227,38 @@ Continue           SECTION 01 — HERO (editorial travel composition)
               <span>Excellent &amp; Exceptional</span>
               <strong>Service.</strong>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SECTION 03 — WHAT WE CREATE (services card grid)
+      ════════════════════════════════════════════════════════════════ */}
+      <section
+        className={`services-section reveal-section${servicesReveal.visible ? " is-visible" : ""}`}
+        id="services"
+        ref={servicesReveal.ref as React.RefObject<HTMLElement>}
+      >
+        <div className="container">
+          <div className="svc-head reveal-item" style={{ "--delay": "0ms" } as React.CSSProperties}>
+            <div className="svc-head__text">
+              <Eyebrow>WHAT WE PLAN FOR YOU</Eyebrow>
+              <h2 className="svc-head__title">Our Services</h2>
+              <p className="svc-head__sub">
+                From educational tours to corporate protocol — every experience
+                thoughtfully coordinated from first enquiry to final delivery.
+              </p>
+            </div>
+          </div>
+          <div className="svc-grid">
+            {services.slice(0, 6).map((service, i) => (
+              <ServiceCard key={service.slug} service={service} index={i} visible={servicesReveal.visible} />
+            ))}
+          </div>
+          <div className="svc-more reveal-item" style={{ "--delay": "600ms" } as React.CSSProperties}>
+            <Link className="svc-more__all" to="/services">
+              View all services <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
