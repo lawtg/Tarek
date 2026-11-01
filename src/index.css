@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -14,6 +15,7 @@
   --color-slate:     #64717D;
   --font-serif: "Instrument Serif", serif;
   --font-sans:  "Manrope", sans-serif;
+  --font-clash: "Clash Grotesk", "Manrope", sans-serif;
 }
 
 @layer base {
@@ -25,11 +27,17 @@
   }
   html { scroll-behavior: smooth; }
   body { min-width: 320px; overflow-x: hidden; }
-  h1, h2, h3 {
-    font-family: "Instrument Serif", serif;
-    font-weight: 400;
-    letter-spacing: -0.02em;
+  h1 {
+    font-family: "Clash Grotesk", "Manrope", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.03em;
     line-height: 1.05;
+  }
+  h2, h3 {
+    font-family: "Clash Grotesk", "Manrope", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
   }
   a, button, input, select, textarea { outline-offset: 3px; }
   a:focus-visible,
@@ -306,7 +314,7 @@
    SECTION HEADINGS
 ══════════════════════════════════════════════════════════════════════════ */
 .section-heading { max-width: 680px; margin-bottom: 52px; }
-.section-heading h2 { color: #0D1B2A; font-size: clamp(32px, 3.6vw, 50px); line-height: 1.1; }
+.section-heading h2 { color: #0D1B2A; font-size: clamp(32px, 3.6vw, 50px); line-height: 1.08; font-weight: 600; letter-spacing: -.025em; }
 .section-heading > p { color: #6B7A8D; font-size: 15px; line-height: 1.8; margin-top: 14px; max-width: 560px; }
 .section-heading--center { text-align: center; margin-inline: auto; }
 .section-heading--center .eyebrow { justify-content: center; }
@@ -392,7 +400,7 @@
 .hero__left h1 {
   font-size: clamp(36px, 4vw, 60px);
   line-height: 1.06;
-  letter-spacing: -.022em;
+  letter-spacing: -.03em;
   color: #0D1B2A;
   margin: 0 0 22px;
   opacity: 0;
@@ -779,9 +787,9 @@
 .svc-card:hover:not(.svc-card--featured) .svc-card__icon { background: var(--blue); color: white; }
 .svc-card--featured .svc-card__icon { background: rgba(255,255,255,.18); color: white; }
 .svc-card__title {
-  font-family: "Instrument Serif", serif;
+  font-family: "Clash Grotesk", "Manrope", sans-serif;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.15;
   color: var(--text-primary);
   margin-bottom: 12px;
@@ -1009,9 +1017,9 @@
 .diff-item__text { flex: 1; min-width: 0; }
 .diff-item__title {
   display: block;
-  font-family: "Instrument Serif", serif;
+  font-family: "Clash Grotesk", "Manrope", sans-serif;
   font-size: clamp(17px, 1.7vw, 22px);
-  font-weight: 400;
+  font-weight: 600;
   color: var(--text-primary);
   line-height: 1.1;
   margin-bottom: 6px;
@@ -1067,9 +1075,9 @@
 }
 .diff-caption__title {
   display: block;
-  font-family: "Instrument Serif", serif;
+  font-family: "Clash Grotesk", "Manrope", sans-serif;
   font-size: clamp(26px, 2.8vw, 38px);
-  font-weight: 400; line-height: 1.05;
+  font-weight: 700; line-height: 1.05;
 }
 .diff-dots {
   position: absolute;
@@ -1276,9 +1284,9 @@
 }
 .tp-card__location svg { color: var(--blue); flex-shrink: 0; }
 .tp-card__title {
-  font-family: "Instrument Serif", serif;
+  font-family: "Clash Grotesk", "Manrope", sans-serif;
   font-size: 19px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
   color: var(--text-primary);
   margin-bottom: 9px;
