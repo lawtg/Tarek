@@ -338,7 +338,7 @@
    HERO — EDITORIAL TRAVEL COMPOSITION
 ══════════════════════════════════════════════════════════════════════════ */
 .hero {
-  background: #FFFFFF;           /* match image background */
+  background: #f9fafc;           /* match image background */
   padding-top: 84px;             /* clears fixed header */
   min-height: calc(100svh - 84px);
   max-height: 920px;
@@ -355,7 +355,7 @@
   display: flex;
   align-items: center;
   padding: clamp(48px, 6vh, 80px) 0;
-  background: #FFFFFF;
+  background: #f9fafc;
   position: relative;
   z-index: 2;
 }
@@ -498,7 +498,7 @@
 .hero__right {
   position: relative;
   overflow: hidden;
-  background: #FFFFFF; /* matches image white background */
+  background: #f9fafc; /* matches image background */
 }
 
 /* Destination name watermark behind everything */
