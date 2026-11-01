@@ -20,7 +20,7 @@ export function Logo({ light = false }: { light?: boolean }) {
       aria-label="Tarek Travels and Logistics Limited home"
     >
       <img
-        src="/logo.jpeg"
+        src="/logo.png"
         alt="Tarek Travels and Logistics Limited"
         className="logo-img"
       />
