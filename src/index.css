@@ -677,41 +677,49 @@
     min-height: auto;
     padding-top: 84px;
   }
+  /* IMAGE FIRST on mobile — swap order */
+  .hero__right {
+    order: 1;                /* image comes first */
+    height: 340px;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    margin: 0 16px;          /* breathing room on sides */
+    margin-top: 12px;        /* small gap below header */
+    height: 300px;
+  }
   .hero__left {
-    padding: 52px 0 44px;
-    order: 1;
+    order: 2;                /* text comes second */
+    padding: 36px 0 44px;
   }
   .hero__left-inner {
     width: var(--container);
     margin-inline: auto;
     padding-right: 0;
   }
-  /* On tablet: simplified right panel, stacked below */
-  .hero__right {
-    order: 2;
-    height: 400px;
-  }
-  .hero__watermark { font-size: 80px; }
   .hero__img-primary { width: 100%; height: 100%; border-radius: 0; box-shadow: none; inset: 0; }
   .hero__img-secondary { display: none; }
   .hero__loc-tag { display: none; }
-  .hero__coords { bottom: 14px; right: 14px; }
+  .hero__coords { display: none; }
   .hero__travel-obj { display: none; }
-  .hero__stat { top: 16px; left: 16px; }
-  .hero__left h1 { font-size: clamp(32px, 8vw, 50px); }
+  .hero__stat { display: none; }
+  .hero__left h1 { font-size: clamp(30px, 8vw, 48px); }
   .hero__trust { display: none; }
+  .hero__actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero__btn { min-height: 50px; justify-content: center; }
 }
 
 /* ── Mobile (560px) ── */
 @media (max-width: 560px) {
   .hero { padding-top: 64px; }
-  .hero__left { padding: 40px 0 36px; }
-  .hero__left h1 { font-size: clamp(28px, 10vw, 42px); letter-spacing: -.018em; }
-  .hero__sub { font-size: 14.5px; }
-  .hero__actions { flex-direction: column; align-items: stretch; }
-  .hero__btn { min-height: 48px; justify-content: center; }
-  .hero__right { height: 280px; }
-  .hero__stat { display: none; }
+  /* Image still first, smaller height on phones */
+  .hero__right {
+    height: 260px;
+    margin: 8px 12px 0;
+    border-radius: 0 0 16px 16px;
+  }
+  .hero__left { padding: 28px 0 36px; }
+  .hero__left h1 { font-size: clamp(26px, 9.5vw, 40px); letter-spacing: -.018em; }
+  .hero__sub { font-size: 14px; }
 }
 
    SERVICES SECTION
