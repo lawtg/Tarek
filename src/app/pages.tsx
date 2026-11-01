@@ -128,7 +128,7 @@ export function Home() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 01 — HERO (editorial travel composition)
+Continue           SECTION 01 — HERO (editorial travel composition)
       ════════════════════════════════════════════════════════════════ */}
       <section className="hero">
         {/* LEFT — content */}
@@ -172,47 +172,13 @@ export function Home() {
 
         {/* RIGHT — editorial destination composition */}
         <div className="hero__right" aria-hidden="true">
-          {/* Watermark destination name */}
-          <span className="hero__watermark">NIGERIA</span>
-
-          {/* Primary large image — destination landscape */}
+          {/* Primary image — Engineering Africa in Motion */}
           <div className="hero__img-primary">
             <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82"
+              src="/Engineering Africa in Motion.png"
               alt=""
               fetchPriority="high"
               decoding="async"
-            />
-          </div>
-
-          {/* Secondary inset image — group / journey moment */}
-          <div className="hero__img-secondary">
-            <img
-              src="/pilgrimage.jpg"
-              alt=""
-              loading="lazy"
-            />
-            {/* Location pin label */}
-            <div className="hero__loc-tag">
-              <svg width="8" height="10" viewBox="0 0 8 10" fill="none" aria-hidden="true">
-                <path d="M4 0C1.8 0 0 1.8 0 4c0 2.8 4 6 4 6s4-3.2 4-6c0-2.2-1.8-4-4-4zm0 5.5A1.5 1.5 0 1 1 4 2.5a1.5 1.5 0 0 1 0 3z" fill="currentColor"/>
-              </svg>
-              Nigeria
-            </div>
-          </div>
-
-          {/* Coordinates label */}
-          <div className="hero__coords">
-            <span className="hero__coords-line" />
-            <span>04°46′N · 07°00′E</span>
-          </div>
-
-          {/* Editorial travel object */}
-          <div className="hero__travel-obj">
-            <img
-              src="/small-table-lamp-plane-world-map.jpg"
-              alt=""
-              loading="lazy"
             />
           </div>
 
