@@ -122,7 +122,6 @@ export function Home() {
 
   const servicesReveal = useReveal()
   const aboutReveal = useReveal()
-  const audienceReveal = useReveal()
   const packagesReveal = useReveal()
 
   return (
@@ -187,6 +186,26 @@ Continue           SECTION 01 — HERO (editorial travel composition)
             <strong>Est. 2020</strong>
             <span>Tarek Travels &amp; Logistics</span>
           </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════
+          SERVE STRIP — marquee trust band (after hero)
+      ════════════════════════════════════════════════════════════════ */}
+      <section className="serve-strip" aria-label="Who we work with">
+        <div className="serve-strip__label">Who We Serve</div>
+        <div className="serve-strip__track-wrap">
+          {/* Two identical sets — second copy makes the loop seamless */}
+          {[0, 1].map((copy) => (
+            <div className="serve-strip__track" aria-hidden={copy === 1} key={copy}>
+              {audienceData.map(({ title, Icon }) => (
+                <div className="serve-item" key={title + copy}>
+                  <span className="serve-item__icon"><Icon size={20} /></span>
+                  <span className="serve-item__label">{title}</span>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -321,46 +340,6 @@ Continue           SECTION 01 — HERO (editorial travel composition)
                 onClick={() => setActiveValue(i)}
                 aria-label={item.title}
               />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          SECTION 06 — WHO WE SERVE (dark directory — breaks light run)
-      ════════════════════════════════════════════════════════════════ */}
-      <section
-        className={`audience reveal-section${audienceReveal.visible ? " is-visible" : ""}`}
-        ref={audienceReveal.ref as React.RefObject<HTMLElement>}
-      >
-        <div className="container audience__inner">
-          <div className="audience__head">
-            <p className="audience__eyebrow">WHO WE SERVE</p>
-            <h2>Who We
-            Work With.</h2>
-            <p className="audience__sub">
-              From individuals to large groups, schools to corporations — we handle the logistics so you can focus on the moment.
-            </p>
-            <Link className="button button--outline-light" to="/contact">
-              Tell Us What You Need <ArrowRight size={16} />
-            </Link>
-          </div>
-          <div className="audience-directory">
-            {audienceData.map(({ title, desc, Icon }, i) => (
-              <div
-                key={title}
-                className="audience-row reveal-item"
-                style={{ "--delay": `${i * 50}ms` } as React.CSSProperties}
-              >
-                <div className="audience-row__num" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="audience-row__text">
-                  <div className="audience-row__name">{title}</div>
-                  <div className="audience-row__desc">{desc}</div>
-                </div>
-                <ArrowRight size={16} className="audience-row__arrow" aria-hidden="true" />
-              </div>
             ))}
           </div>
         </div>
