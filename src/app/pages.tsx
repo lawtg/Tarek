@@ -58,7 +58,6 @@ function useReveal(threshold = 0.12) {
 export function Home() {
   const visibleServices = services.slice(0, 4)
   const moreServices = services.slice(4)
-  const [activeValue, setActiveValue] = useState(0)
 
   const audienceData = [
     {
@@ -93,35 +92,9 @@ export function Home() {
     },
   ]
 
-  const differenceItems = [
-    {
-      num: "01",
-      title: "Thoughtful Planning",
-      desc: "We go beyond logistics. Every detail is considered, every arrangement discussed, and every commitment kept.",
-      image: images.about,
-    },
-    {
-      num: "02",
-      title: "Personalised Attention",
-      desc: "We take time to understand your requirements, discuss what matters to you, and tailor arrangements accordingly.",
-      image: images.group,
-    },
-    {
-      num: "03",
-      title: "Seamless Coordination",
-      desc: "From first inquiry to delivery, our coordination is precise, proactive, and professionally communicated.",
-      image: images.events,
-    },
-    {
-      num: "04",
-      title: "Experiences Worth Remembering",
-      desc: "We are committed to positive experiences that stay with people long after the journey ends.",
-      image: images.pilgrimage,
-    },
-  ]
-
   const servicesReveal = useReveal()
   const aboutReveal = useReveal()
+  const diffReveal = useReveal()
   const packagesReveal = useReveal()
 
   return (
@@ -283,66 +256,79 @@ Continue           SECTION 01 — HERO (editorial travel composition)
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
-          SECTION 05 — THE TAREK DIFFERENCE
+          SECTION 05 — THE TAREK DIFFERENCE (premium two-column)
       ════════════════════════════════════════════════════════════════ */}
-      <section className="diff-section">
-        {/* Left — text panel */}
+      <section
+        className={`diff-section${diffReveal.visible ? " is-visible" : ""}`}
+        ref={diffReveal.ref as React.RefObject<HTMLElement>}
+      >
+        <div className="diff-inner">
+        {/* LEFT — content */}
         <div className="diff-left">
           <div className="diff-left__inner">
-            <Eyebrow>THE TAREK DIFFERENCE</Eyebrow>
-            <h2 className="diff-heading">What Sets<br />Us Apart.</h2>
-            <div className="diff-list">
-              {differenceItems.map((item, i) => (
-                <button
-                  key={item.title}
-                  className={`diff-item${activeValue === i ? " is-active" : ""}`}
-                  onClick={() => setActiveValue(i)}
-                  onMouseEnter={() => setActiveValue(i)}
-                  aria-pressed={activeValue === i}
-                >
-                  <span className="diff-item__num">{item.num}</span>
-                  <div className="diff-item__text">
-                    <span className="diff-item__title">{item.title}</span>
-                    <span className="diff-item__desc">{item.desc}</span>
-                  </div>
-                </button>
-              ))}
+            <p className="diff-eyebrow">
+              <span className="diff-eyebrow-rule" aria-hidden="true" />
+              THE TAREK DIFFERENCE
+            </p>
+            <h2 className="diff-heading">
+              What Sets<br />Us <em>Apart.</em>
+            </h2>
+            <p className="diff-sub">
+              We go beyond coordination. Every detail is planned with care,
+              every client treated as a priority, every experience made to last.
+            </p>
+            <div className="diff-grid">
+              <div className="diff-card">
+                <span className="diff-card__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                  </svg>
+                </span>
+                <h3 className="diff-card__title">Thoughtful Planning</h3>
+                <p className="diff-card__desc">We go beyond logistics. Every detail is considered, every arrangement discussed, and every commitment kept.</p>
+              </div>
+              <div className="diff-card">
+                <span className="diff-card__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </span>
+                <h3 className="diff-card__title">Personalised Attention</h3>
+                <p className="diff-card__desc">We take time to understand your requirements, discuss what matters to you, and tailor arrangements accordingly.</p>
+              </div>
+              <div className="diff-card">
+                <span className="diff-card__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                  </svg>
+                </span>
+                <h3 className="diff-card__title">Seamless Coordination</h3>
+                <p className="diff-card__desc">From first inquiry to delivery, our coordination is precise, proactive, and professionally communicated.</p>
+              </div>
+              <div className="diff-card">
+                <span className="diff-card__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                </span>
+                <h3 className="diff-card__title">Experiences Worth Remembering</h3>
+                <p className="diff-card__desc">We are committed to positive experiences that stay with people long after the journey ends.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Right — photo panel */}
+        {/* RIGHT — single professional photograph */}
         <div className="diff-right" aria-hidden="true">
-          {differenceItems.map((item, i) => (
-            <div
-              key={item.title}
-              className={`diff-photo${activeValue === i ? " is-active" : ""}`}
-            >
-              <img src={item.image} alt="" loading="lazy" />
-              <div className="diff-photo__overlay" />
-            </div>
-          ))}
-          {/* floating label */}
-          <div className="diff-caption">
-            <span className="diff-caption__eyebrow">
-              {differenceItems[activeValue].num} — THE TAREK DIFFERENCE
-            </span>
-            <strong className="diff-caption__title">
-              {differenceItems[activeValue].title}
-            </strong>
+          <div className="diff-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?auto=format&fit=crop&w=900&q=85"
+              alt="Professional businesswoman in a modern office"
+              loading="lazy"
+            />
           </div>
-          {/* progress dots */}
-          <div className="diff-dots">
-            {differenceItems.map((item, i) => (
-              <button
-                key={item.title}
-                className={`diff-dot${activeValue === i ? " is-active" : ""}`}
-                onClick={() => setActiveValue(i)}
-                aria-label={item.title}
-              />
-            ))}
-          </div>
-        </div>
+        </div>{/* end diff-right */}
+        </div>{/* end diff-inner */}
       </section>
 
       {/* ════════════════════════════════════════════════════════════════
