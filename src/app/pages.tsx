@@ -213,7 +213,7 @@ Continue           SECTION 01 — HERO (editorial travel composition)
           </div>
           <div className="about-image reveal-item" style={{ "--delay": "150ms" } as React.CSSProperties}>
             <div className="about-image__frame">
-              <img src={images.about} alt="Thoughtful planning in action" loading="lazy" />
+              <img src="/Tarek story.png" alt="Tarek Travels and Logistics — Travel in Style" loading="lazy" />
             </div>
             <div className="about-image__tag">
               <span>Excellent &amp; Exceptional</span>
@@ -322,8 +322,8 @@ Continue           SECTION 01 — HERO (editorial travel composition)
         <div className="diff-right" aria-hidden="true">
           <div className="diff-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?auto=format&fit=crop&w=900&q=85"
-              alt="Professional businesswoman in a modern office"
+              src="/Tarek Difference.png"
+              alt="Tarek Travels and Logistics team — Travel in Style, Travel with Confidence"
               loading="lazy"
             />
           </div>
