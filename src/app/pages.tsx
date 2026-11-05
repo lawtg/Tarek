@@ -2,15 +2,9 @@ import { Link, useParams } from "react-router"
 import { useEffect, useRef, useState } from "react"
 import {
   ArrowRight,
-  Building2,
   CheckCircle2,
-  Church,
-  GraduationCap,
-  HeartHandshake,
   MessageCircle,
   Phone,
-  Sparkles,
-  Users,
 } from "lucide-react"
 import {
   ContactForm,
@@ -58,39 +52,6 @@ function useReveal(threshold = 0.12) {
 export function Home() {
   const visibleServices = services.slice(0, 4)
   const moreServices = services.slice(4)
-
-  const audienceData = [
-    {
-      title: "Individuals & Families",
-      desc: "Personal travel planning, group getaways, and memorable family experiences.",
-      Icon: HeartHandshake,
-    },
-    {
-      title: "Schools & Educational Institutions",
-      desc: "Thoughtfully coordinated educational tours and learning excursions.",
-      Icon: GraduationCap,
-    },
-    {
-      title: "Churches & Religious Organisations",
-      desc: "Pilgrimage planning and faith-based group journey coordination.",
-      Icon: Church,
-    },
-    {
-      title: "Corporate Organisations",
-      desc: "Protocol, events, logistics, and corporate group travel support.",
-      Icon: Building2,
-    },
-    {
-      title: "Groups & Associations",
-      desc: "End-to-end coordination for group travel, outings, and community programmes.",
-      Icon: Users,
-    },
-    {
-      title: "Event Organisers & Delegations",
-      desc: "Professional meet-and-greet, guest coordination, and event logistics.",
-      Icon: Sparkles,
-    },
-  ]
 
   const servicesReveal = useReveal()
   const aboutReveal = useReveal()
@@ -159,26 +120,6 @@ Continue           SECTION 01 — HERO (editorial travel composition)
             <strong>Est. 2020</strong>
             <span>Tarek Travels &amp; Logistics</span>
           </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════════
-          SERVE STRIP — marquee trust band (after hero)
-      ════════════════════════════════════════════════════════════════ */}
-      <section className="serve-strip" aria-label="Who we work with">
-        <div className="serve-strip__label">Who We Serve</div>
-        <div className="serve-strip__track-wrap">
-          {/* Two identical sets — second copy makes the loop seamless */}
-          {[0, 1].map((copy) => (
-            <div className="serve-strip__track" aria-hidden={copy === 1} key={copy}>
-              {audienceData.map(({ title, Icon }) => (
-                <div className="serve-item" key={title + copy}>
-                  <span className="serve-item__icon"><Icon size={20} /></span>
-                  <span className="serve-item__label">{title}</span>
-                </div>
-              ))}
-            </div>
-          ))}
         </div>
       </section>
 
