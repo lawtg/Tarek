@@ -369,7 +369,7 @@ Continue           SECTION 01 — HERO (editorial travel composition)
         </div>
       </section>
 
-      {/* PROMISE — full-bleed photographic */}
+      {/* PROMISE — fixed background, centred, black gradient */}
       <section className="promise" aria-label="Our brand promise">
         <div
           className="promise__bg"
@@ -377,7 +377,7 @@ Continue           SECTION 01 — HERO (editorial travel composition)
           aria-hidden="true"
         />
         <div className="promise__overlay" aria-hidden="true" />
-        <div className="container promise__content">
+        <div className="promise__content">
           <Eyebrow light>WHY CLIENTS CHOOSE US</Eyebrow>
           <h2>Your Plans Matter.<br /><em>Your Experience Matters More.</em></h2>
           <p>
