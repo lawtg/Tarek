@@ -30,7 +30,7 @@ export function Logo({ light = false }: { light?: boolean }) {
 
 export function WhatsAppLink({
   children,
-  message = "Hello Tarek Logistics Limited, I would like to make an inquiry about your services.",
+  message = "Hello Tarek Travels and Logistics Limited, I would like to make an inquiry about your services.",
   className = "button button--primary",
 }: {
   children: ReactNode
@@ -83,7 +83,7 @@ export function Header() {
             {PHONE_DISPLAY}
           </a>
           <WhatsAppLink
-            message="Hello Tarek Logistics Limited, I would like to plan a journey."
+            message="Hello Tarek Travels and Logistics Limited, I would like to plan a journey."
             className="button button--primary header-cta"
           >
             Plan Your Journey <ArrowRight size={15} />
@@ -114,7 +114,7 @@ export function Header() {
               <ArrowRight size={16} />
             </NavLink>
           ))}
-          <WhatsAppLink message="Hello Tarek Logistics Limited, I would like to plan a journey.">
+          <WhatsAppLink message="Hello Tarek Travels and Logistics Limited, I would like to plan a journey.">
             <MessageCircle size={18} /> Plan Your Journey
           </WhatsAppLink>
         </nav>
@@ -130,7 +130,7 @@ export function Footer() {
         <div className="footer-brand">
           <Logo light />
           <p>
-            Tarek Logistics Limited helps individuals, groups, and organisations
+            Tarek Travels and Logistics Limited helps individuals, groups, and organisations
             plan travel, excursions, logistics, training, and events with a
             commitment to affordability and exceptional service.
           </p>
@@ -167,7 +167,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>© 2026 Tarek Logistics Limited. All rights reserved.</span>
+        <span>© 2026 Tarek Travels and Logistics Limited. All rights reserved.</span>
         <span>Travel · Logistics · Training · Events</span>
       </div>
     </footer>
@@ -183,16 +183,16 @@ export function Layout() {
       ? services.find((item) => path.endsWith(item.slug))
       : undefined
     const titles: Record<string, string> = {
-      "/": "Tarek Logistics Limited | Travel, Tours & Event Planning",
-      "/about": "About Us | Tarek Logistics Limited",
-      "/services": "Travel, Logistics & Event Services | Tarek Logistics Limited",
-      "/tours": "Tours & Packages | Tarek Logistics Limited",
-      "/contact": "Contact Us | Tarek Logistics Limited",
-      "/privacy": "Privacy Policy | Tarek Logistics Limited",
+      "/": "Tarek Travels and Logistics Limited | Travel, Tours & Event Planning",
+      "/about": "About Us | Tarek Travels and Logistics Limited",
+      "/services": "Travel, Logistics & Event Services | Tarek Travels and Logistics Limited",
+      "/tours": "Tours & Packages | Tarek Travels and Logistics Limited",
+      "/contact": "Contact Us | Tarek Travels and Logistics Limited",
+      "/privacy": "Privacy Policy | Tarek Travels and Logistics Limited",
     }
     document.title = service
-      ? `${service.title} | Tarek Logistics Limited`
-      : titles[path] || "Page Not Found | Tarek Logistics Limited"
+      ? `${service.title} | Tarek Travels and Logistics Limited`
+      : titles[path] || "Page Not Found | Tarek Travels and Logistics Limited"
   }, [location.pathname])
   return (
     <>
@@ -342,7 +342,7 @@ export function ContactForm() {
       ["Budget", form.get("budget")],
       ["Message", form.get("message")],
     ].filter(([, value]) => String(value || "").trim())
-    const message = `Hello Tarek Logistics Limited, I would like to make an inquiry.\n\n${fields.map(([label, value]) => `${label}: ${value}`).join("\n")}`
+    const message = `Hello Tarek Travels and Logistics Limited, I would like to make an inquiry.\n\n${fields.map(([label, value]) => `${label}: ${value}`).join("\n")}`
     window.open(whatsappUrl(message), "_blank", "noopener,noreferrer")
     setStatus("success")
   }

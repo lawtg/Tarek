@@ -61,7 +61,7 @@ export const services = [
     image: images.educational,
     icon: GraduationCap,
     message:
-      "Hello Tarek Logistics Limited, I would like to discuss an educational tour.",
+      "Hello Tarek Travels and Logistics Limited, I would like to discuss an educational tour.",
   },
   {
     slug: "group-vacations",
@@ -80,7 +80,7 @@ export const services = [
     image: images.group,
     icon: Users,
     message:
-      "Hello Tarek Logistics Limited, I am interested in planning a group vacation.",
+      "Hello Tarek Travels and Logistics Limited, I am interested in planning a group vacation.",
   },
   {
     slug: "pilgrimage",
@@ -99,7 +99,7 @@ export const services = [
     image: images.pilgrimage,
     icon: Church,
     message:
-      "Hello Tarek Logistics Limited, I would like information about your pilgrimage planning services.",
+      "Hello Tarek Travels and Logistics Limited, I would like information about your pilgrimage planning services.",
   },
   {
     slug: "protocol-events",
@@ -118,7 +118,7 @@ export const services = [
     image: images.events,
     icon: BriefcaseBusiness,
     message:
-      "Hello Tarek Logistics Limited, I would like to discuss protocol and logistics support.",
+      "Hello Tarek Travels and Logistics Limited, I would like to discuss protocol and logistics support.",
   },
   {
     slug: "ecotourism",
@@ -137,7 +137,7 @@ export const services = [
     image: images.nature,
     icon: Leaf,
     message:
-      "Hello Tarek Logistics Limited, I would like to discuss an ecotourism experience.",
+      "Hello Tarek Travels and Logistics Limited, I would like to discuss an ecotourism experience.",
   },
   {
     slug: "travel-planning",
@@ -155,7 +155,7 @@ export const services = [
     image: images.travelPlanning,
     icon: Plane,
     message:
-      "Hello Tarek Logistics Limited, I would like help planning a journey.",
+      "Hello Tarek Travels and Logistics Limited, I would like help planning a journey.",
   },
   {
     slug: "meet-and-greet",
@@ -174,7 +174,7 @@ export const services = [
     image: images.events,
     icon: Handshake,
     message:
-      "Hello Tarek Logistics Limited, I would like to discuss meet-and-greet support.",
+      "Hello Tarek Travels and Logistics Limited, I would like to discuss meet-and-greet support.",
   },
   {
     slug: "training",
@@ -193,7 +193,7 @@ export const services = [
     image: images.training,
     icon: BookOpen,
     message:
-      "Hello Tarek Logistics Limited, I would like to discuss a training programme.",
+      "Hello Tarek Travels and Logistics Limited, I would like to discuss a training programme.",
   },
   {
     slug: "logistics-support",
@@ -212,7 +212,7 @@ export const services = [
     image: images.logistics,
     icon: MapPinned,
     message:
-      "Hello Tarek Logistics Limited, I would like to discuss logistics support.",
+      "Hello Tarek Travels and Logistics Limited, I would like to discuss logistics support.",
   },
   {
     slug: "event-planning",
@@ -231,7 +231,7 @@ export const services = [
     image: images.events,
     icon: CalendarCheck,
     message:
-      "Hello Tarek Logistics Limited, I would like to discuss planning an event.",
+      "Hello Tarek Travels and Logistics Limited, I would like to discuss planning an event.",
   },
 ]
 
@@ -260,7 +260,7 @@ export const experienceCategories = [
 
 export const faqs = [
   [
-    "What services does Tarek Logistics Limited offer?",
+    "What services does Tarek Travels and Logistics Limited offer?",
     "We provide travel planning, educational tourism, ecotourism, group tours and vacations, pilgrimage, protocol and logistics, meet-and-greet services, training, and event planning.",
   ],
   [

@@ -10,7 +10,6 @@ import {
   ContactForm,
   Eyebrow,
   FaqList,
-  FinalCta,
   PageHero,
   SectionHeading,
   WhatsAppLink,
@@ -63,7 +62,7 @@ export function Home() {
       {/* ════════════════════════════════════════════════════════════════
           SECTION 01 — HERO (cinematic panoramic luxury travel)
       ════════════════════════════════════════════════════════════════ */}
-      <section className="hero" aria-label="Welcome to Tarek Logistics Limited">
+      <section className="hero" aria-label="Welcome to Tarek Travels and Logistics Limited">
         {/* Full-bleed panoramic photographic background */}
         <div className="hero__backdrop" aria-hidden="true">
           <img
@@ -102,7 +101,7 @@ export function Home() {
 
             <div className="hero__actions">
               <WhatsAppLink
-                message="Hello Tarek Logistics Limited, I would like to plan an experience."
+                message="Hello Tarek Travels and Logistics Limited, I would like to plan an experience."
                 className="hero__btn hero__btn--primary"
               >
                 Start Planning — It's Free
@@ -352,7 +351,7 @@ export function Home() {
               <a
                 key={pkg.title}
                 className="tp-card reveal-item"
-                href={whatsappUrl(`Hello Tarek Logistics Limited, I would like to enquire about the ${pkg.title}.`)}
+                href={whatsappUrl(`Hello Tarek Travels and Logistics Limited, I would like to enquire about the ${pkg.title}.`)}
                 target="_blank"
                 rel="noreferrer"
                 style={{ "--delay": `${i * 80}ms` } as React.CSSProperties}
@@ -421,7 +420,6 @@ export function Home() {
         </div>
       </section>
 
-      <FinalCta />
     </>
   )
 }
@@ -451,7 +449,7 @@ function ServiceCard({ service, index = 0, visible = false }: { service: typeof 
 }
 
 function PackageCard({ item, index = 0, visible = false }: { item: typeof experienceCategories[number]; index?: number; visible?: boolean }) {
-  const message = `Hello Tarek Logistics Limited, I would like to enquire about ${item.title}.`
+  const message = `Hello Tarek Travels and Logistics Limited, I would like to enquire about ${item.title}.`
   const isTall = index === 0 || index === 3
   return (
     <article
@@ -577,7 +575,6 @@ export function About() {
           </div>
         </div>
       </section>
-      <FinalCta />
     </>
   )
 }
@@ -620,7 +617,6 @@ export function ServicesPage() {
           </div>
         </div>
       </section>
-      <FinalCta />
     </>
   )
 }
@@ -697,7 +693,6 @@ export function ServiceDetail() {
           <FaqList items={faqs.slice(2, 7)} />
         </div>
       </section>
-      <FinalCta />
     </>
   )
 }
@@ -763,7 +758,6 @@ export function Tours() {
           </div>
         </div>
       </section>
-      <FinalCta />
     </>
   )
 }
@@ -788,7 +782,7 @@ export function Contact() {
             </p>
             <a
               href={whatsappUrl(
-                "Hello Tarek Logistics Limited, I would like to make an inquiry about your services.",
+                "Hello Tarek Travels and Logistics Limited, I would like to make an inquiry about your services.",
               )}
               target="_blank"
               rel="noreferrer"
@@ -846,7 +840,7 @@ export function Privacy() {
           </p>
           <h2>Contact information</h2>
           <p>
-            If you contact Tarek Logistics Limited by phone, email, or WhatsApp,
+            If you contact Tarek Travels and Logistics Limited by phone, email, or WhatsApp,
             the information you provide is used to respond to your inquiry and
             discuss the requested service.
           </p>
