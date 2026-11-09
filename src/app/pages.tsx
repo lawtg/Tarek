@@ -80,18 +80,18 @@ export function Home() {
           <div className="hero__content">
             <div className="hero__eyebrow-wrap">
               <span className="hero__eyebrow">
-                LUXURY TRAVEL &amp; CONCIERGE
+                TRAVELS &amp; LOGISTICS
               </span>
               <span className="hero__diamond" aria-hidden="true">✦</span>
             </div>
 
             <h1 className="hero__title">
-              <span>DISCREET LUXURY.</span>
-              <em>GLOBAL ACCESS.</em>
+              <span>YOUR JOURNEY.</span>
+              <em>OUR MISSION.</em>
             </h1>
 
             <p className="hero__tagline">
-              PRIVATE. PERSONAL. EXCEPTIONAL.
+              STRESS-FREE. RELIABLE. PERSONAL.
             </p>
 
             <p className="hero__sub">
