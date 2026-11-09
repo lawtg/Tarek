@@ -61,25 +61,45 @@ export function Home() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════════
-Continue           SECTION 01 — HERO (editorial travel composition)
+          SECTION 01 — HERO (cinematic panoramic luxury travel)
       ════════════════════════════════════════════════════════════════ */}
-      <section className="hero">
-        {/* LEFT — content */}
-        <div className="hero__left">
-          <div className="hero__left-inner">
-            <p className="hero__eyebrow">
-              <span className="hero__eyebrow-rule" aria-hidden="true" />
-              TRAVEL · LOGISTICS · EVENTS
-            </p>
-            <h1>
-              Every Journey<br />
-              Deserves to Be<br />
-              <em>Extraordinary.</em>
+      <section className="hero" aria-label="Welcome to Tarek Logistics Limited">
+        {/* Full-bleed panoramic photographic background */}
+        <div className="hero__backdrop" aria-hidden="true">
+          <img
+            src="/Luxury Jet Departure Over Lagos.jpg"
+            alt="Luxury Jet Departure Over Lagos — Tarek Travels & Logistics"
+            fetchPriority="high"
+            decoding="async"
+          />
+          <div className="hero__overlay" />
+        </div>
+
+        {/* Content container aligned over left negative space */}
+        <div className="container hero__container">
+          <div className="hero__content">
+            <div className="hero__eyebrow-wrap">
+              <span className="hero__eyebrow">
+                LUXURY TRAVEL &amp; CONCIERGE
+              </span>
+              <span className="hero__diamond" aria-hidden="true">✦</span>
+            </div>
+
+            <h1 className="hero__title">
+              <span>DISCREET LUXURY.</span>
+              <em>GLOBAL ACCESS.</em>
             </h1>
-            <p className="hero__sub">
-              We plan travel, educational tours, pilgrimages, protocol, events,
-              and logistics — so your group can focus entirely on the experience.
+
+            <p className="hero__tagline">
+              PRIVATE. PERSONAL. EXCEPTIONAL.
             </p>
+
+            <p className="hero__sub">
+              We plan bespoke travel, educational tours, pilgrimages, VIP protocol,
+              events, and logistics — so you and your group can focus entirely on
+              the extraordinary experience.
+            </p>
+
             <div className="hero__actions">
               <WhatsAppLink
                 message="Hello Tarek Logistics Limited, I would like to plan an experience."
@@ -92,7 +112,7 @@ Continue           SECTION 01 — HERO (editorial travel composition)
                 Explore Our Experiences
               </a>
             </div>
-            {/* trust strip */}
+
             <div className="hero__trust">
               <span>✓ No commitment required</span>
               <span className="hero__trust-dot" />
@@ -103,23 +123,11 @@ Continue           SECTION 01 — HERO (editorial travel composition)
           </div>
         </div>
 
-        {/* RIGHT — editorial destination composition */}
-        <div className="hero__right" aria-hidden="true">
-          {/* Primary image — Engineering Africa in Motion */}
-          <div className="hero__img-primary">
-            <img
-              src="/Engineering Africa in Motion.png"
-              alt=""
-              fetchPriority="high"
-              decoding="async"
-            />
-          </div>
-
-          {/* Stat card */}
-          <div className="hero__stat">
-            <strong>Est. 2020</strong>
-            <span>Tarek Travels &amp; Logistics</span>
-          </div>
+        {/* Floating stat card on tarmac */}
+        <div className="hero__stat" aria-hidden="true">
+          <span className="hero__stat-eyebrow">LAGOS · GLOBAL</span>
+          <strong>Est. 2020</strong>
+          <span>Tarek Travels &amp; Logistics</span>
         </div>
       </section>
 
@@ -295,6 +303,7 @@ Continue           SECTION 01 — HERO (editorial travel composition)
               {
                 title: "Aba Day Trip",
                 location: "Abia State, Nigeria",
+                category: "City Excursion",
                 desc: "A guided day tour exploring the commercial and cultural heart of Aba.",
                 img: "/Aerial_view_of_Aba.jpg",
                 imgAlt: "Aerial view of Aba, Abia State, Nigeria",
@@ -302,6 +311,7 @@ Continue           SECTION 01 — HERO (editorial travel composition)
               {
                 title: "Bonny City Tour",
                 location: "Rivers State, Nigeria",
+                category: "Island Heritage",
                 desc: "Discover the rich history, waterways, and heritage of Bonny Island.",
                 img: "/bonny city.jpeg",
                 imgAlt: "Bonny City, Rivers State, Nigeria",
@@ -309,30 +319,34 @@ Continue           SECTION 01 — HERO (editorial travel composition)
               {
                 title: "Port Harcourt City Tour",
                 location: "Rivers State, Nigeria",
+                category: "Garden City",
                 desc: "A curated tour of the Garden City — landmarks, culture, and cuisine.",
                 img: "/Port harcourt.jpeg",
                 imgAlt: "Port Harcourt, Rivers State, Nigeria",
               },
               {
-                title: "Finger of God Cathedral",
-                location: "Nigeria",
+                title: "Hand of God Cathedral",
+                location: "Rivers State, Nigeria",
+                category: "Architectural Landmark",
                 desc: "A meaningful guided visit to one of Nigeria's most iconic religious landmarks.",
                 img: "/finger of god cathedral .jpeg",
-                imgAlt: "Finger of God Cathedral, Nigeria",
+                imgAlt: "Hand of God Cathedral, Rivers State, Nigeria",
               },
               {
                 title: "Shiloh Tour Packages",
-                location: "Nigeria",
+                location: "Canaanland, Ota, Nigeria",
+                category: "Annual Pilgrimage",
                 desc: "Faith-inspired group journeys coordinated around the Shiloh experience.",
-                img: "/shiloh tour.jpg",
-                imgAlt: "Shiloh Tour, Nigeria",
+                img: "/canaanland.jpg",
+                imgAlt: "Canaanland, Ota, Ogun State — Faith Tabernacle Shiloh Arena",
               },
               {
                 title: "Glory Reign Tour Packages",
-                location: "Nigeria",
+                location: "Port Harcourt, Rivers State",
+                category: "Faith Gathering",
                 desc: "Coordinated travel and logistics for Glory Reign pilgrims and groups.",
-                img: "/glory reign .jpg",
-                imgAlt: "Glory Reign Tour, Nigeria",
+                img: "/glory_reign_card.jpg",
+                imgAlt: "Glory Reign Tour Packages, Rivers State, Nigeria",
               },
             ].map((pkg, i) => (
               <a
@@ -345,6 +359,7 @@ Continue           SECTION 01 — HERO (editorial travel composition)
               >
                 <div className="tp-card__img">
                   <img src={pkg.img} alt={pkg.imgAlt} loading="lazy" />
+                  <span className="tp-card__badge">{pkg.category}</span>
                 </div>
                 <div className="tp-card__body">
                   <p className="tp-card__location">
@@ -412,16 +427,19 @@ Continue           SECTION 01 — HERO (editorial travel composition)
 }
 
 function ServiceCard({ service, index = 0, visible = false }: { service: typeof services[number]; index?: number; visible?: boolean }) {
-  const featured = index === 0
+  const isPopular = index === 0
   return (
     <Link
-      className={`svc-card reveal-item${featured ? " svc-card--featured" : ""}${visible ? " is-visible" : ""}`}
+      className={`svc-card reveal-item${visible ? " is-visible" : ""}`}
       to={`/services/${service.slug}`}
       style={{ "--delay": `${index * 70}ms` } as React.CSSProperties}
     >
-      <span className="svc-card__icon" aria-hidden="true">
-        <service.icon size={26} />
-      </span>
+      <div className="svc-card__top">
+        <span className="svc-card__icon" aria-hidden="true">
+          <service.icon size={24} />
+        </span>
+        {isPopular && <span className="svc-card__badge">Popular</span>}
+      </div>
       <h3 className="svc-card__title">{service.title}</h3>
       <span className="svc-card__divider" aria-hidden="true" />
       <p className="svc-card__desc">{service.description}</p>

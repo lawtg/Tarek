@@ -277,7 +277,7 @@ export function FinalCta() {
   return (
     <section className="final-cta">
       <div className="container final-cta__inner">
-        <div>
+        <div className="final-cta__text">
           <Eyebrow light>LET'S START A CONVERSATION</Eyebrow>
           <h2>Ready to Start Planning?</h2>
           <p>
@@ -285,16 +285,22 @@ export function FinalCta() {
             and help you take the next step — at no obligation.
           </p>
         </div>
-        <div className="final-cta__actions">
-          <WhatsAppLink className="button button--white">
-            <MessageCircle size={18} /> Chat on WhatsApp
-          </WhatsAppLink>
-          <a className="button button--outline-light" href={PHONE_LINK}>
-            <Phone size={18} /> Call Our Team
-          </a>
-          <small>
-            We respond promptly. No commitment required to start a conversation.
-          </small>
+        <div className="final-cta__box">
+          <div className="final-cta__buttons">
+            <WhatsAppLink className="button button--champagne">
+              <MessageCircle size={18} /> Chat on WhatsApp
+            </WhatsAppLink>
+            <a className="button button--outline-light" href={PHONE_LINK}>
+              <Phone size={18} /> Call Our Team
+            </a>
+          </div>
+          <div className="final-cta__guarantee">
+            <span>✓ Same-day response</span>
+            <span className="final-cta__guarantee-dot" />
+            <span>✓ No commitment required</span>
+            <span className="final-cta__guarantee-dot" />
+            <span>✓ Tailored to you</span>
+          </div>
         </div>
       </div>
     </section>
