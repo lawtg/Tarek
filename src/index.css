@@ -373,6 +373,10 @@
   from { transform: scale(1.04); }
   to   { transform: scale(1); }
 }
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 /* Luminous gradient overlay: ensures razor-sharp text contrast on left, keeps right jet/traveler 100% crisp */
 .hero__overlay {
