@@ -335,7 +335,7 @@ export function Home() {
                 location: "Canaanland, Ota, Nigeria",
                 category: "Annual Pilgrimage",
                 desc: "Faith-inspired group journeys coordinated around the Shiloh experience.",
-                img: "/canaanland.jpg",
+                img: "/cannanland2.jpeg",
                 imgAlt: "Canaanland, Ota, Ogun State — Faith Tabernacle Shiloh Arena",
               },
               {
