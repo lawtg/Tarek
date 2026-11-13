@@ -51,9 +51,9 @@ export function WhatsAppLink({
 
 const nav = [
   ["/", "Home"],
+  ["/about", "About Us"],
   ["/services", "Our Services"],
   ["/tours", "Tours & Packages"],
-  ["/about", "About Us"],
   ["/contact", "Contact"],
 ]
 
